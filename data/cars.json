@@ -1,0 +1,84 @@
+[
+  {
+    "id": "mercedes-benz-c-300",
+    "brand": "mercedes-benz",
+    "model": "C 300",
+    "slug": "c-300",
+    "category": "standard",
+    "type": "sedan",
+    "year": 2024,
+    "specs": {
+      "engine": "2.0L Turbocharged 4-cylinder mild-hybrid",
+      "horsepower": 255,
+      "torque": "400 Nm",
+      "transmission": "9-speed automatic",
+      "drivetrain": "RWD",
+      "0_to_100_kph": "5.8 seconds",
+      "top_speed": "250 km/h (limited)"
+    },
+    "price_sgd": 224888,
+    "colors": [
+      "Obsidian Black",
+      "Polar White",
+      "Mojave Silver",
+      "Spectral Blue",
+      "Selenite Grey"
+    ],
+    "description": "The benchmark luxury compact sedan. S-Class design DNA in a smaller package, with a high-tech MBUX interior and refined driving dynamics."
+  },
+  {
+    "id": "mercedes-benz-glc-300-4matic",
+    "brand": "mercedes-benz",
+    "model": "GLC 300 4MATIC",
+    "slug": "glc-300-4matic",
+    "category": "standard",
+    "type": "suv",
+    "year": 2024,
+    "specs": {
+      "engine": "2.0L Turbocharged 4-cylinder mild-hybrid",
+      "horsepower": 258,
+      "torque": "370 Nm",
+      "transmission": "9-speed automatic",
+      "drivetrain": "4MATIC AWD",
+      "0_to_100_kph": "6.2 seconds",
+      "top_speed": "230 km/h (limited)"
+    },
+    "price_sgd": 241888,
+    "colors": [
+      "Obsidian Black",
+      "Polar White",
+      "Selenite Grey",
+      "Spectral Blue",
+      "Mojave Silver",
+      "MANUFAKTUR Patagonia Red"
+    ],
+    "description": "Mercedes-Benz's best-selling SUV globally. Elevated luxury meets genuine all-road capability, wrapped in a sculpted athletic body."
+  },
+  {
+    "id": "mercedes-amg-glc-43-4matic",
+    "brand": "mercedes-benz",
+    "model": "AMG GLC 43 4MATIC",
+    "slug": "amg-glc-43-4matic",
+    "category": "amg",
+    "type": "suv",
+    "year": 2024,
+    "specs": {
+      "engine": "2.0L Turbocharged 4-cylinder AMG-tuned mild-hybrid",
+      "horsepower": 416,
+      "torque": "500 Nm",
+      "transmission": "9-speed AMG Speedshift automatic",
+      "drivetrain": "4MATIC+ AWD",
+      "0_to_100_kph": "4.7 seconds",
+      "top_speed": "270 km/h (limited)"
+    },
+    "price_sgd": 381888,
+    "colors": [
+      "Obsidian Black",
+      "Polar White",
+      "Selenite Grey",
+      "Patagonia Red",
+      "Graphite Grey Magno (matte)"
+    ],
+    "description": "The gateway AMG. Hand-built performance engine, sport-tuned suspension, and AMG-specific aerodynamics — daily driver by day, track weapon by night."
+  }
+]

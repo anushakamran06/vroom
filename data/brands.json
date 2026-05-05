@@ -1,0 +1,16 @@
+[
+  {
+    "id": "mercedes-benz",
+    "name": "Mercedes-Benz",
+    "slug": "mercedes-benz",
+    "theme": {
+      "--brand-primary": "#000000",
+      "--brand-secondary": "#A0A0A0",
+      "--brand-accent": "#C0A060",
+      "--brand-background": "#FFFFFF",
+      "--brand-text": "#1A1A1A"
+    }
+  },
+  null,
+  null
+]
