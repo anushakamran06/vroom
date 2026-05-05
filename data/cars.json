@@ -1,0 +1,266 @@
+[
+  {
+    "id": "mercedes-c300-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "C300",
+    "modelSlug": "c300",
+    "year": 2025,
+    "basePrice": 288800,
+    "colors": [
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Selenite Grey", "slug": "selenite-grey", "hex": "#8A8E91", "priceDelta": 2500 },
+      { "name": "Spectral Blue", "slug": "spectral-blue", "hex": "#2E4D7B", "priceDelta": 3200 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "18-inch alloy, five-spoke silver finish", "priceDelta": 0 },
+      { "index": 1, "name": "19-inch AMG alloy, multi-spoke dark finish", "priceDelta": 4800 }
+    ],
+    "specs": {
+      "engine": "2.0L turbocharged inline-4",
+      "power": "258 hp",
+      "torque": "400 Nm",
+      "transmission": "9-speed automatic",
+      "acceleration": "0–100 km/h in 5.8s",
+      "topSpeed": "250 km/h (limited)",
+      "fuelConsumption": "7.1L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 96000,
+      "arf": 57760,
+      "registrationFee": 220,
+      "annualRoadTax": 1482
+    },
+    "addOns": [
+      {
+        "id": "c300-burmester-sound",
+        "name": "Burmester Surround Sound System",
+        "plainDescription": "13-speaker, 590-watt sound system replacing the standard audio setup. Adds spatial audio processing and a dedicated subwoofer in the boot.",
+        "priceDelta": 5800,
+        "replacesWhat": "Standard 9-speaker audio system"
+      },
+      {
+        "id": "c300-panoramic-roof",
+        "name": "Panoramic Sliding Sunroof",
+        "plainDescription": "Full-length glass roof that slides open electrically. Includes a retractable sunblind and UV-blocking glass.",
+        "priceDelta": 4200,
+        "replacesWhat": "Standard fixed steel roof"
+      },
+      {
+        "id": "c300-night-package",
+        "name": "Night Package",
+        "plainDescription": "Replaces chrome exterior trim with gloss black — grille surrounds, window frames, and mirror caps. Purely cosmetic.",
+        "priceDelta": 3100,
+        "replacesWhat": "Standard chrome exterior trim"
+      },
+      {
+        "id": "c300-driver-assist",
+        "name": "Advanced Driver Assistance Package",
+        "plainDescription": "Adds active lane-keeping, adaptive cruise control with stop-and-go, and blind-spot monitoring. Requires MBUX navigation.",
+        "priceDelta": 6500,
+        "replacesWhat": "Basic cruise control and parking sensors"
+      }
+    ],
+    "notIncluded": [
+      {
+        "name": "Floor Mats (All-Weather)",
+        "description": "OEM rubber mats for all four footwells. The car ships with carpet mats only.",
+        "addPrice": 380
+      },
+      {
+        "name": "Window Tinting",
+        "description": "Factory windows have no tint. Dealer-applied 70% VLT film meets LTA limits.",
+        "addPrice": 650
+      },
+      {
+        "name": "Dashcam (Front + Rear)",
+        "description": "No dashcam fitted as standard. Dealer installs a hardwired front-and-rear unit with parking mode.",
+        "addPrice": 750
+      }
+    ],
+    "activePromotions": [
+      {
+        "description": "May 2025 showroom launch discount — applied at point of registration",
+        "saving": 5000,
+        "expiryDate": "2025-05-31"
+      }
+    ]
+  },
+  {
+    "id": "mercedes-glc300-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "GLC300",
+    "modelSlug": "glc300",
+    "year": 2025,
+    "basePrice": 338800,
+    "colors": [
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Graphite Grey", "slug": "graphite-grey", "hex": "#4A4A4A", "priceDelta": 0 },
+      { "name": "Emerald Green", "slug": "emerald-green", "hex": "#2D5A3D", "priceDelta": 3500 },
+      { "name": "Manufaktur Nautical Blue", "slug": "nautical-blue", "hex": "#1B3A5C", "priceDelta": 5200 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "19-inch alloy, five-spoke silver finish", "priceDelta": 0 },
+      { "index": 1, "name": "20-inch AMG alloy, cross-spoke dark finish", "priceDelta": 5500 }
+    ],
+    "specs": {
+      "engine": "2.0L turbocharged inline-4",
+      "power": "258 hp",
+      "torque": "400 Nm",
+      "transmission": "9-speed automatic",
+      "acceleration": "0–100 km/h in 6.0s",
+      "topSpeed": "235 km/h (limited)",
+      "fuelConsumption": "7.5L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 96000,
+      "arf": 67760,
+      "registrationFee": 220,
+      "annualRoadTax": 1482
+    },
+    "addOns": [
+      {
+        "id": "glc300-burmester-sound",
+        "name": "Burmester 3D Surround Sound",
+        "plainDescription": "15-speaker, 710-watt system with height channels for 3D audio. Replaces the standard 9-speaker setup entirely.",
+        "priceDelta": 6800,
+        "replacesWhat": "Standard 9-speaker audio system"
+      },
+      {
+        "id": "glc300-offroad-package",
+        "name": "Off-Road Engineering Package",
+        "plainDescription": "Adds underbody protection plates, a locking rear differential, and trail mode in the drive selector. Does not raise ride height.",
+        "priceDelta": 7200,
+        "replacesWhat": "Standard underbody trim"
+      },
+      {
+        "id": "glc300-night-package",
+        "name": "Night Package",
+        "plainDescription": "Swaps chrome exterior badges, mirror caps, and window frames for gloss black versions. No mechanical changes.",
+        "priceDelta": 3400,
+        "replacesWhat": "Standard chrome exterior trim"
+      },
+      {
+        "id": "glc300-air-suspension",
+        "name": "AIRMATIC Air Suspension",
+        "plainDescription": "Replaces the standard steel-spring suspension with an air-spring setup that adjusts ride height automatically at speed or on demand.",
+        "priceDelta": 9800,
+        "replacesWhat": "Standard steel-spring suspension"
+      }
+    ],
+    "notIncluded": [
+      {
+        "name": "Cargo Liner",
+        "description": "The boot has no liner. OEM rubber liner protects against spills and scratches when loading.",
+        "addPrice": 280
+      },
+      {
+        "name": "Window Tinting",
+        "description": "No factory tint. Dealer applies 70% VLT film to side and rear windows within LTA regulations.",
+        "addPrice": 750
+      },
+      {
+        "name": "Tow Bar",
+        "description": "GLC300 is rated to tow 2,000 kg but ships with no tow bar fitted. Dealer-installed detachable unit.",
+        "addPrice": 1800
+      }
+    ],
+    "activePromotions": [
+      {
+        "description": "Q2 2025 fleet refresh — waived first-year road tax on registration before 30 June",
+        "saving": 1482,
+        "expiryDate": "2025-06-30"
+      }
+    ]
+  },
+  {
+    "id": "mercedes-amg-glc43-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "AMG GLC43",
+    "modelSlug": "amg-glc43",
+    "year": 2025,
+    "basePrice": 448800,
+    "colors": [
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Patagonia Red", "slug": "patagonia-red", "hex": "#8B1A1A", "priceDelta": 4500 },
+      { "name": "High-tech Silver", "slug": "high-tech-silver", "hex": "#C0C0C0", "priceDelta": 0 },
+      { "name": "Manufaktur Selenite Grey Magno", "slug": "selenite-grey-magno", "hex": "#6E7275", "priceDelta": 8500 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "20-inch AMG alloy, five-twin-spoke titanium grey finish", "priceDelta": 0 },
+      { "index": 1, "name": "21-inch AMG forged alloy, cross-spoke matte black finish", "priceDelta": 7800 }
+    ],
+    "specs": {
+      "engine": "3.0L twin-turbocharged inline-6",
+      "power": "421 hp",
+      "torque": "520 Nm",
+      "transmission": "9-speed AMG Speedshift MCT",
+      "acceleration": "0–100 km/h in 4.1s",
+      "topSpeed": "270 km/h (limited)",
+      "fuelConsumption": "9.1L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 96000,
+      "arf": 89760,
+      "registrationFee": 220,
+      "annualRoadTax": 3578
+    },
+    "addOns": [
+      {
+        "id": "amg43-burmester-highend",
+        "name": "Burmester High-End 3D Sound System",
+        "plainDescription": "24-speaker, 1,590-watt system with Dolby Atmos support. Built specifically for the GLC cabin dimensions.",
+        "priceDelta": 12500,
+        "replacesWhat": "Standard Burmester 3D system"
+      },
+      {
+        "id": "amg43-performance-exhaust",
+        "name": "AMG Performance Exhaust",
+        "plainDescription": "Stainless steel exhaust with active flaps that open at high rpm for a louder sound. Noticeable difference in tunnel and at startup.",
+        "priceDelta": 9800,
+        "replacesWhat": "Standard exhaust system"
+      },
+      {
+        "id": "amg43-carbon-pack",
+        "name": "AMG Carbon Fibre Interior Package",
+        "plainDescription": "Replaces dashboard trim and door inserts with real woven carbon fibre panels. Adds carbon fibre shift paddles.",
+        "priceDelta": 11200,
+        "replacesWhat": "Standard open-pore wood trim"
+      },
+      {
+        "id": "amg43-track-package",
+        "name": "AMG Track Pace & Telemetry",
+        "plainDescription": "Adds the AMG Track Pace app to the instrument cluster — logs lap times, g-forces, and tyre temperatures via MBUX. Requires AMG Driver's Package for top-speed removal.",
+        "priceDelta": 4200,
+        "replacesWhat": "Standard sport display in instrument cluster"
+      }
+    ],
+    "notIncluded": [
+      {
+        "name": "AMG Floor Mats (Velour)",
+        "description": "Car ships with standard mats. AMG-logoed velour set fits precisely and adds a cabin finish consistent with the exterior.",
+        "addPrice": 580
+      },
+      {
+        "name": "Paint Protection Film (Full Front)",
+        "description": "No PPF applied at factory. Self-healing film covers bonnet, front bumper, and wing mirrors against stone chips.",
+        "addPrice": 3800
+      },
+      {
+        "name": "Ceramic Brake Upgrade",
+        "description": "Standard steel brakes are adequate. AMG ceramic composite brakes cut unsprung weight by 20 kg and resist fade on track.",
+        "addPrice": 18500
+      }
+    ],
+    "activePromotions": [
+      {
+        "description": "AMG Performance Weekend — complimentary one-day AMG driving experience at Sepang included with purchase",
+        "saving": 3500,
+        "expiryDate": "2025-07-15"
+      }
+    ]
+  }
+]
