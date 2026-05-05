@@ -27,11 +27,15 @@ export interface Car {
 }
 
 export interface BrandTheme {
+  "--brand-bg": string;
+  "--brand-surface": string;
+  "--brand-surface-hover": string;
   "--brand-primary": string;
   "--brand-secondary": string;
   "--brand-accent": string;
-  "--brand-background": string;
-  "--brand-text": string;
+  "--brand-border": string;
+  "--brand-font-heading": string;
+  "--brand-font-mono": string;
 }
 
 export interface Brand {

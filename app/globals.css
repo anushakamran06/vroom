@@ -1,3 +1,87 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Mercedes-Benz brand theme ──────────────────────────── */
+[data-brand="mercedes"] {
+  --brand-bg:           #0A0A0A;
+  --brand-surface:      #141414;
+  --brand-surface-hover:#1C1C1C;
+  --brand-primary:      #FFFFFF;
+  --brand-secondary:    #8A8A8A;
+  --brand-accent:       #C8A96E;
+  --brand-border:       #2A2A2A;
+  --brand-font-heading: var(--font-inter), sans-serif;
+  --brand-font-mono:    var(--font-jetbrains-mono), monospace;
+}
+
+/* ─── Brand slot 2 — to be added ─────────────────────────── */
+/* [data-brand="brand-2"] { } */
+
+/* ─── Brand slot 3 — to be added ─────────────────────────── */
+/* [data-brand="brand-3"] { } */
+
+/* ─── Global base ────────────────────────────────────────── */
+body {
+  background-color: var(--brand-bg);
+  color: var(--brand-primary);
+  font-family: var(--brand-font-heading);
+}
+
+/* ─── Custom scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: #111111; }
+::-webkit-scrollbar-thumb  { background: #555555; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #888888; }
+*                          { scrollbar-width: thin; scrollbar-color: #555555 #111111; }
+
+/* ─── Car browse page — hide horizontal scroll track ─────── */
+.slideshow::-webkit-scrollbar { display: none; }
+
+/* ─── Car card hover ─────────────────────────────────────── */
+.car-card { transition: border-color 0.2s; }
+.car-card:hover { border-color: var(--brand-accent) !important; }
+
+/* ─── Car detail 60/40 layout ────────────────────────────── */
+.car-detail-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.car-viewer-pane {
+  flex: 0 0 60%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.specs-pane {
+  flex: 0 0 40%;
+  background: var(--brand-surface);
+  border-left: 1px solid var(--brand-border);
+  padding: 3rem 2rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .car-detail-layout { flex-direction: column; }
+  .car-viewer-pane   { flex: unset; height: 40vh; position: static; }
+  .specs-pane        { flex: unset; border-left: none; border-top: 1px solid var(--brand-border); }
+}
+
+/* ─── CTA button hover ───────────────────────────────────── */
+.cta-btn:hover {
+  background: var(--brand-primary) !important;
+  color: #000000 !important;
+}

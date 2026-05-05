@@ -4,11 +4,15 @@
     "name": "Mercedes-Benz",
     "slug": "mercedes-benz",
     "theme": {
-      "--brand-primary": "#000000",
-      "--brand-secondary": "#A0A0A0",
-      "--brand-accent": "#C0A060",
-      "--brand-background": "#FFFFFF",
-      "--brand-text": "#1A1A1A"
+      "--brand-bg": "#0A0A0A",
+      "--brand-surface": "#141414",
+      "--brand-surface-hover": "#1C1C1C",
+      "--brand-primary": "#FFFFFF",
+      "--brand-secondary": "#8A8A8A",
+      "--brand-accent": "#C8A96E",
+      "--brand-border": "#2A2A2A",
+      "--brand-font-heading": "\"Inter\", sans-serif",
+      "--brand-font-mono": "\"JetBrains Mono\", monospace"
     }
   },
   null,
