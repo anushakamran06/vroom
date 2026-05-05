@@ -1,10 +1,7 @@
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
 import carsData from "@/data/cars.json";
 import type { Car } from "@/types/car";
-
-// CarViewer uses WebGL — must be client-only, no SSR
-const CarViewer = dynamic(() => import("@/components/CarViewer"), { ssr: false });
+import CarViewerWrapper from "@/components/CarViewerWrapper";
 
 const cars = carsData.filter(Boolean) as Car[];
 
@@ -39,7 +36,7 @@ export default async function CarPage({
       <div className="car-detail-layout">
         {/* Left 60% — 3D viewer */}
         <div className="car-viewer-pane">
-          <CarViewer />
+          <CarViewerWrapper />
         </div>
 
         {/* Right 40% — specs panel */}
