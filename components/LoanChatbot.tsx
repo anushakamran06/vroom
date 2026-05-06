@@ -15,37 +15,75 @@ interface Message {
   text: string;
 }
 
-type ConversationStage = "deposit" | "tenure" | "rate_confirm" | "done";
+const BANKS: { name: string; rate: number }[] = [
+  { name: "DBS", rate: 2.48 },
+  { name: "OCBC", rate: 2.5 },
+  { name: "UOB", rate: 2.58 },
+  { name: "Maybank", rate: 2.38 },
+  { name: "StanChart", rate: 2.68 },
+];
 
 function fmt(n: number): string {
   return "S$" + Math.round(n).toLocaleString("en-SG");
 }
 
-function calcMonthlyInstalment(
-  principal: number,
-  ratePA: number,
-  tenureYears: number
-): { monthly: number; totalInterest: number; principalPart: number; interestPart: number } {
-  const totalInterest = principal * (ratePA / 100) * tenureYears;
-  const months = tenureYears * 12;
-  const monthly = (principal + totalInterest) / months;
-  return {
-    monthly,
-    totalInterest,
-    principalPart: principal / months,
-    interestPart: totalInterest / months,
-  };
+function parseAmount(text: string): number | null {
+  const cleaned = text.trim().replace(/[S$,\s]/g, "");
+  if (/^\d+(\.\d+)?[kK]$/.test(cleaned))
+    return parseFloat(cleaned) * 1_000;
+  if (/^\d+(\.\d+)?[mM]$/.test(cleaned))
+    return parseFloat(cleaned) * 1_000_000;
+  const n = parseFloat(cleaned);
+  return isNaN(n) || n < 0 ? null : n;
+}
+
+function formatForDisplay(text: string): string {
+  const n = parseAmount(text);
+  if (n !== null && /^\d+(\.\d+)?[kKmM]?$/.test(text.trim().replace(/[S$,\s]/g, ""))) {
+    return fmt(n);
+  }
+  return text;
+}
+
+function buildSystemPrompt(car: Car, totalPrice: number, selectedRate: number | null): string {
+  const rateNote = selectedRate
+    ? `The user has selected a flat rate of ${selectedRate}% p.a. — use this for all instalment calculations.`
+    : "Default to 2.78% p.a. flat if no rate is specified.";
+
+  return `You are a Singapore car loan advisor. The customer is configuring a ${car.brand} ${car.model}. Total on-the-road price: ${fmt(totalPrice)} (this already includes COE, ARF, and registration fee).
+
+Key Singapore loan rules you must apply:
+- MAS tenure limits: max 7 years if OMV ≤ S$20,000; max 5 years if OMV > S$20,000. All cars on this platform are > S$20k OMV, so max tenure is 5 years.
+- LTV limits: max 70% LTV if OMV ≤ S$20,000; max 60% LTV if OMV > S$20,000. For this car, max loan = 60% of OTR price = ${fmt(totalPrice * 0.6)}.
+- COE is already included in the OTR price shown — never add it again.
+- Flat rate vs effective rate: 2.5% flat ≈ 4.7% effective p.a. Always clarify this.
+- Monthly instalment = (Principal + Total Interest) / (Tenure × 12), where Total Interest = Principal × flat rate × tenure years.
+- Recommended deposit range: 30–40% of OTR price.
+
+2025 SG bank flat rates for reference:
+- DBS: 2.48% p.a. | OCBC: 2.50% p.a. | UOB: 2.58% p.a. | Maybank: 2.38% p.a. | Standard Chartered: 2.68% p.a.
+
+${rateNote}
+
+When showing a loan breakdown, always include:
+• Deposit amount
+• Loan amount (LTV %)
+• Monthly instalment
+• Total interest paid
+• Flat rate used + reminder that effective rate is ~2× the flat rate
+
+Be concise. Use Singapore dollar formatting (S$X,XXX). Never use marketing language. Answer any question about SG car loans, COE, ARF, or financing naturally.`;
 }
 
 export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [stage, setStage] = useState<ConversationStage>("deposit");
-  const [deposit, setDeposit] = useState(0);
-  const [tenure, setTenure] = useState(0);
-  const [rate] = useState(2.78);
   const [loading, setLoading] = useState(false);
   const [initialised, setInitialised] = useState(false);
+  const [selectedBank, setSelectedBank] = useState<string | null>(null);
+  const [selectedRate, setSelectedRate] = useState<number | null>(null);
+  const [showCustomRate, setShowCustomRate] = useState(false);
+  const [customRateInput, setCustomRateInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,11 +91,10 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
       setMessages([
         {
           role: "bot",
-          text: `Your ${car.model} comes to ${fmt(totalPrice)} on the road. How much would you like to put down as a deposit?`,
+          text: `Your ${car.model} comes to ${fmt(totalPrice)} on the road.\n\nI can help you work out monthly instalments, check MAS loan limits, and compare bank rates. What would you like to know?`,
         },
       ]);
       setInitialised(true);
-      setStage("deposit");
     }
   }, [isOpen, initialised, car.model, totalPrice]);
 
@@ -69,14 +106,47 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
     setMessages((prev) => [...prev, { role: "bot", text }]);
   }
 
-  async function callClaude(userText: string, contextMessages: Message[]): Promise<string> {
-    const systemPrompt = `You are a car loan advisor for Singapore. The customer is configuring a ${car.model}. Total on-the-road price: ${fmt(totalPrice)}. Always use Singapore dollar formatting (S$X,XXX). Explain financial terms in plain English. Be concise. Never use marketing language.`;
+  function selectBank(bankName: string, rate: number) {
+    setSelectedBank(bankName);
+    setSelectedRate(rate);
+    setShowCustomRate(false);
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", text: `Use ${bankName} rate (${rate}% p.a. flat)` },
+    ]);
+    setTimeout(() => {
+      addBot(
+        `${bankName} rate locked in at ${rate}% p.a. flat (effective ~${(rate * 1.9).toFixed(1)}% p.a.).\n\nTell me your deposit amount and tenure and I'll calculate your monthly instalment.`
+      );
+    }, 100);
+  }
 
-    const apiMessages = contextMessages.map((m) => ({
-      role: m.role === "bot" ? "assistant" : "user",
-      content: m.text,
-    }));
-    apiMessages.push({ role: "user", content: userText });
+  function applyCustomRate() {
+    const r = parseFloat(customRateInput.replace(/[^0-9.]/g, ""));
+    if (isNaN(r) || r <= 0 || r >= 30) {
+      addBot("Please enter a valid rate between 0.1% and 30%.");
+      return;
+    }
+    setSelectedBank("Custom");
+    setSelectedRate(r);
+    setShowCustomRate(false);
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", text: `Use custom rate: ${r}% p.a. flat` },
+    ]);
+    setTimeout(() => {
+      addBot(`Custom rate ${r}% p.a. flat set (effective ~${(r * 1.9).toFixed(1)}% p.a.).`);
+    }, 100);
+  }
+
+  async function callClaude(userText: string): Promise<string> {
+    const systemPrompt = buildSystemPrompt(car, totalPrice, selectedRate);
+    const apiMessages = messages
+      .concat({ role: "user", text: userText })
+      .map((m) => ({
+        role: m.role === "bot" ? "assistant" : "user",
+        content: m.text,
+      }));
 
     const res = await fetch("/api/chat", {
       method: "POST",
@@ -84,98 +154,37 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
       body: JSON.stringify({ messages: apiMessages, systemPrompt }),
     });
 
-    if (!res.ok) {
-      const err = await res.text();
-      console.error("Chat API error:", err);
-      return "Sorry, I couldn't reach the AI advisor right now.";
-    }
-
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    if (data.error) throw new Error(data.error);
     return data.text ?? "No response.";
   }
 
   async function handleSend() {
-    const text = input.trim();
-    if (!text || loading) return;
-    setInput("");
+    const raw = input.trim();
+    if (!raw || loading) return;
 
-    const userMsg: Message = { role: "user", text };
-    setMessages((prev) => [...prev, userMsg]);
+    const displayText = formatForDisplay(raw);
+    setInput("");
+    setMessages((prev) => [...prev, { role: "user", text: displayText }]);
     setLoading(true);
 
+    const textToSend = parseAmount(raw) !== null ? fmt(parseAmount(raw)!) : raw;
+
     try {
-      if (stage === "deposit") {
-        const parsed = parseAmount(text);
-        if (parsed == null) {
-          addBot("Please enter a valid deposit amount (e.g. 50000 or S$50,000).");
-          setLoading(false);
-          return;
-        }
-
-        const loanAmount = totalPrice - parsed;
-        const ltvRatio = loanAmount / totalPrice;
-        setDeposit(parsed);
-
-        let response = `Got it — deposit of ${fmt(parsed)}, leaving a loan of ${fmt(loanAmount)}.`;
-
-        if (ltvRatio > 0.7 && totalPrice > 20000) {
-          response += ` Note: MAS rules cap car loans at 70% of the purchase price for cars above S$20,000 OMV. Your loan-to-value would be ${Math.round(ltvRatio * 100)}%, which exceeds this limit. You would need to increase your deposit to at least ${fmt(totalPrice * 0.3)}.`;
-        }
-
-        response += " How many years would you like to spread the loan over? (1–7 years)";
-        addBot(response);
-        setStage("tenure");
-      } else if (stage === "tenure") {
-        const years = parseInt(text.replace(/[^0-9]/g, ""), 10);
-        if (!years || years < 1 || years > 7) {
-          addBot("Please enter a loan tenure between 1 and 7 years.");
-          setLoading(false);
-          return;
-        }
-        setTenure(years);
-        addBot(
-          `${years}-year tenure noted. I'll use the standard flat rate of 2.78% p.a. — shall I proceed with that, or do you have a rate from your bank? (Reply "yes" to use 2.78%, or enter a rate like "2.5%")`
-        );
-        setStage("rate_confirm");
-      } else if (stage === "rate_confirm") {
-        const lowerText = text.toLowerCase();
-        let finalRate = rate;
-        if (lowerText !== "yes" && lowerText !== "y") {
-          const parsed = parseFloat(text.replace(/[^0-9.]/g, ""));
-          if (!isNaN(parsed) && parsed > 0 && parsed < 30) {
-            finalRate = parsed;
-          }
-        }
-
-        const loanAmount = totalPrice - deposit;
-        const { monthly, totalInterest, principalPart, interestPart } =
-          calcMonthlyInstalment(loanAmount, finalRate, tenure);
-
-        const breakdown =
-          `Here's your loan breakdown at ${finalRate}% p.a. flat rate:\n\n` +
-          `• Principal repayment: ${fmt(principalPart)}/month\n` +
-          `• Interest: ${fmt(interestPart)}/month\n` +
-          `• Total monthly instalment: ${fmt(monthly)}/month\n` +
-          `• Total interest over ${tenure} years: ${fmt(totalInterest)}\n\n` +
-          `A flat rate of ${finalRate}% p.a. means interest is calculated on the original loan amount for every year, not on the reducing balance. So you pay the same interest each month regardless of how much you've paid off — which makes the effective interest rate (EIR) higher than the advertised flat rate.`;
-
-        addBot(breakdown);
-        setStage("done");
-      } else {
-        const reply = await callClaude(text, messages);
-        addBot(reply);
-      }
+      const reply = await callClaude(textToSend);
+      addBot(reply);
+    } catch (err) {
+      console.error("Chat error:", err);
+      addBot("Sorry, something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   }
 
-  function parseAmount(text: string): number | null {
-    const cleaned = text.replace(/[S$,\s]/g, "");
-    const n = parseFloat(cleaned);
-    if (isNaN(n) || n < 0) return null;
-    return n;
-  }
+  const activeRateLabel = selectedBank
+    ? `${selectedBank} ${selectedRate}% p.a.`
+    : "No rate selected";
 
   return (
     <div
@@ -201,15 +210,18 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "20px 20px 16px",
+          padding: "16px 20px",
           borderBottom: "1px solid #2A2A2A",
+          flexShrink: 0,
         }}
       >
         <div>
           <div style={{ color: "#C8A96E", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
             Loan Calculator
           </div>
-          <div style={{ color: "#888", fontSize: "12px", marginTop: "2px" }}>{car.model} · {fmt(totalPrice)}</div>
+          <div style={{ color: "#888", fontSize: "12px", marginTop: "2px" }}>
+            {car.model} · {fmt(totalPrice)}
+          </div>
         </div>
         <button
           onClick={onClose}
@@ -232,15 +244,123 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
         </button>
       </div>
 
+      {/* Bank rate selector */}
+      <div
+        style={{
+          padding: "12px 20px",
+          borderBottom: "1px solid #1E1E1E",
+          flexShrink: 0,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
+          <span style={{ fontSize: "11px", color: "#666", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            Interest rate
+          </span>
+          <span
+            title="Flat rate — effective rate is approx 2× the flat rate"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "14px",
+              height: "14px",
+              borderRadius: "50%",
+              border: "1px solid #444",
+              color: "#666",
+              fontSize: "9px",
+              cursor: "help",
+            }}
+          >
+            ?
+          </span>
+          {selectedBank && (
+            <span style={{ marginLeft: "auto", fontSize: "11px", color: "#C8A96E" }}>
+              {activeRateLabel}
+            </span>
+          )}
+        </div>
+        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+          {BANKS.map((b) => (
+            <button
+              key={b.name}
+              onClick={() => selectBank(b.name, b.rate)}
+              style={{
+                padding: "4px 10px",
+                borderRadius: "4px",
+                border: "1px solid",
+                borderColor: selectedBank === b.name ? "#C8A96E" : "#2A2A2A",
+                background: selectedBank === b.name ? "#1A1500" : "transparent",
+                color: selectedBank === b.name ? "#C8A96E" : "#888",
+                fontSize: "11px",
+                cursor: "pointer",
+                transition: "all 0.15s",
+              }}
+            >
+              {b.name} {b.rate}%
+            </button>
+          ))}
+          <button
+            onClick={() => { setShowCustomRate(!showCustomRate); setSelectedBank(null); setSelectedRate(null); }}
+            style={{
+              padding: "4px 10px",
+              borderRadius: "4px",
+              border: "1px solid #2A2A2A",
+              background: "transparent",
+              color: "#666",
+              fontSize: "11px",
+              cursor: "pointer",
+            }}
+          >
+            Enter manually
+          </button>
+        </div>
+        {showCustomRate && (
+          <div style={{ display: "flex", gap: "6px", marginTop: "8px" }}>
+            <input
+              type="text"
+              value={customRateInput}
+              onChange={(e) => setCustomRateInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && applyCustomRate()}
+              placeholder="e.g. 2.5"
+              style={{
+                flex: 1,
+                background: "#1A1A1A",
+                border: "1px solid #3A3A3A",
+                borderRadius: "6px",
+                color: "#E0E0E0",
+                padding: "6px 10px",
+                fontSize: "12px",
+                outline: "none",
+              }}
+            />
+            <span style={{ color: "#666", fontSize: "12px", alignSelf: "center" }}>% p.a.</span>
+            <button
+              onClick={applyCustomRate}
+              style={{
+                padding: "6px 12px",
+                background: "#C8A96E",
+                color: "#fff",
+                border: "none",
+                borderRadius: "6px",
+                fontSize: "11px",
+                cursor: "pointer",
+              }}
+            >
+              Set
+            </button>
+          </div>
+        )}
+      </div>
+
       {/* Messages */}
       <div
         style={{
           flex: 1,
           overflowY: "auto",
-          padding: "20px",
+          padding: "16px 20px",
           display: "flex",
           flexDirection: "column",
-          gap: "12px",
+          gap: "10px",
         }}
       >
         {messages.map((msg, i) => (
@@ -276,11 +396,11 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
                 borderRadius: "16px 16px 16px 4px",
                 background: "#1E1E1E",
                 border: "1px solid #2A2A2A",
-                color: "#888",
+                color: "#555",
                 fontSize: "13px",
               }}
             >
-              ...
+              ···
             </div>
           </div>
         )}
@@ -290,18 +410,19 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
       {/* Input */}
       <div
         style={{
-          padding: "16px 20px",
+          padding: "12px 20px",
           borderTop: "1px solid #2A2A2A",
           display: "flex",
-          gap: "10px",
+          gap: "8px",
+          flexShrink: 0,
         }}
       >
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          placeholder="Type your answer..."
+          onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
+          placeholder="e.g. 300k deposit, 5 years — or ask anything"
           style={{
             flex: 1,
             background: "#1A1A1A",
@@ -317,7 +438,7 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
           onClick={handleSend}
           disabled={loading || !input.trim()}
           style={{
-            padding: "10px 18px",
+            padding: "10px 16px",
             background: "#C8A96E",
             color: "#fff",
             border: "none",
@@ -325,7 +446,7 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
             fontSize: "13px",
             fontWeight: 700,
             cursor: loading || !input.trim() ? "not-allowed" : "pointer",
-            opacity: loading || !input.trim() ? 0.5 : 1,
+            opacity: loading || !input.trim() ? 0.4 : 1,
           }}
         >
           Send

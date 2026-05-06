@@ -1,3 +1,5 @@
+// ANTHROPIC_API_KEY must be set in Vercel dashboard → Project → Settings → Environment Variables.
+// Never hardcode it or use the NEXT_PUBLIC_ prefix (would expose it to the browser).
 import { NextRequest, NextResponse } from "next/server";
 
 interface ChatMessage {

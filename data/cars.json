@@ -6,6 +6,7 @@
     "model": "C300",
     "modelSlug": "c300",
     "year": 2025,
+    "livePrice": true,
     "basePrice": 288800,
     "colors": [
       { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
@@ -115,6 +116,7 @@
     "model": "GLC300",
     "modelSlug": "glc300",
     "year": 2025,
+    "livePrice": true,
     "basePrice": 338800,
     "colors": [
       { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
@@ -224,6 +226,7 @@
     "model": "AMG GLC43",
     "modelSlug": "amg-glc43",
     "year": 2025,
+    "livePrice": true,
     "basePrice": 448800,
     "colors": [
       { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },

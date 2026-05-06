@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import type { Car } from "@/types/car";
 import TooltipInfo from "./TooltipInfo";
 
@@ -11,6 +11,16 @@ interface PriceBreakdownProps {
   selectedAddOns: string[];
   onRemoveAddOn: (id: string) => void;
 }
+
+interface LivePrice {
+  basePrice: number;
+  coeEstimate: number;
+  arf: number;
+  source: string;
+  retrievedAt: string;
+}
+
+type LiveStatus = "idle" | "loading" | "done" | "error";
 
 function fmt(n: number): string {
   return "S$" + n.toLocaleString("en-SG");
@@ -52,6 +62,41 @@ export default function PriceBreakdown({
   selectedAddOns,
   onRemoveAddOn,
 }: PriceBreakdownProps) {
+  const [liveData, setLiveData] = useState<LivePrice | null>(null);
+  const [liveStatus, setLiveStatus] = useState<LiveStatus>("idle");
+  const [updatedTime, setUpdatedTime] = useState<string>("");
+
+  useEffect(() => {
+    if (!car.livePrice) return;
+    setLiveStatus("loading");
+
+    fetch("/api/prices", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ brand: car.brand, model: car.model }),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then((data: LivePrice) => {
+        setLiveData(data);
+        setLiveStatus("done");
+        const d = new Date(data.retrievedAt);
+        setUpdatedTime(
+          d.toLocaleTimeString("en-SG", { hour: "2-digit", minute: "2-digit" })
+        );
+      })
+      .catch((err) => {
+        console.error("Live price fetch failed, using static fallback:", err);
+        setLiveStatus("error");
+      });
+  }, [car.brand, car.model, car.livePrice]);
+
+  const effectiveBasePrice = liveData?.basePrice ?? car.basePrice;
+  const effectiveCoe = liveData?.coeEstimate ?? car.sgFees.coeEstimate;
+  const effectiveArf = liveData?.arf ?? car.sgFees.arf;
+
   const color = useMemo(
     () => car.colors.find((c) => c.slug === selectedColor),
     [car.colors, selectedColor]
@@ -68,14 +113,10 @@ export default function PriceBreakdown({
   const colorDelta = color?.priceDelta ?? 0;
   const wheelDelta = wheel?.priceDelta ?? 0;
   const addOnTotal = activeAddOns.reduce((s, a) => s + a.priceDelta, 0);
-  const subtotal = car.basePrice + colorDelta + wheelDelta + addOnTotal;
-  const promotionSavings = car.activePromotions.reduce(
-    (s, p) => s + p.saving,
-    0
-  );
-  const { coeEstimate, arf, registrationFee, annualRoadTax } = car.sgFees;
-  const total =
-    subtotal - promotionSavings + coeEstimate + arf + registrationFee;
+  const subtotal = effectiveBasePrice + colorDelta + wheelDelta + addOnTotal;
+  const promotionSavings = car.activePromotions.reduce((s, p) => s + p.saving, 0);
+  const { registrationFee, annualRoadTax } = car.sgFees;
+  const total = subtotal - promotionSavings + effectiveCoe + effectiveArf + registrationFee;
 
   return (
     <div
@@ -87,18 +128,28 @@ export default function PriceBreakdown({
         fontFamily: "monospace",
       }}
     >
-      {/* Base price */}
+      {/* Base price row with live badge */}
       <div style={ROW}>
-        <span>Base price</span>
-        <span>{fmt(car.basePrice)}</span>
+        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <span>Base price</span>
+          {car.livePrice && liveStatus === "loading" && (
+            <span style={{ fontSize: "10px", color: "#E05555", letterSpacing: "0.05em" }}>
+              🔴 LIVE
+            </span>
+          )}
+          {car.livePrice && liveStatus === "done" && (
+            <span style={{ fontSize: "10px", color: "#6DBF8C" }}>
+              ✅ Updated {updatedTime}
+            </span>
+          )}
+        </span>
+        <span>{fmt(effectiveBasePrice)}</span>
       </div>
 
       {/* Color delta */}
       {colorDelta > 0 && (
         <div style={{ ...ROW, marginTop: "8px" }}>
-          <span style={LABEL}>
-            <span>Colour — {color?.name}</span>
-          </span>
+          <span style={LABEL}>Colour — {color?.name}</span>
           <span>+{fmt(colorDelta)}</span>
         </div>
       )}
@@ -106,9 +157,7 @@ export default function PriceBreakdown({
       {/* Wheel delta */}
       {wheelDelta > 0 && (
         <div style={{ ...ROW, marginTop: "8px" }}>
-          <span style={LABEL}>
-            <span>Wheels — {wheel?.name.split(",")[0]}</span>
-          </span>
+          <span style={LABEL}>Wheels — {wheel?.name.split(",")[0]}</span>
           <span>+{fmt(wheelDelta)}</span>
         </div>
       )}
@@ -170,7 +219,7 @@ export default function PriceBreakdown({
           <span>COE estimate</span>
           <TooltipInfo content={COE_TIP} />
         </span>
-        <span>{fmt(coeEstimate)}</span>
+        <span>{fmt(effectiveCoe)}</span>
       </div>
 
       <div style={{ ...ROW, marginTop: "8px" }}>
@@ -178,7 +227,7 @@ export default function PriceBreakdown({
           <span>ARF</span>
           <TooltipInfo content={ARF_TIP} />
         </span>
-        <span>{fmt(arf)}</span>
+        <span>{fmt(effectiveArf)}</span>
       </div>
 
       <div style={{ ...ROW, marginTop: "8px" }}>
@@ -191,7 +240,10 @@ export default function PriceBreakdown({
 
       <div style={{ ...ROW, marginTop: "8px", color: "#A0A0A0" }}>
         <span style={LABEL}>
-          <span>Annual road tax <span style={{ fontSize: "11px" }}>(annual, not one-time)</span></span>
+          <span>
+            Annual road tax{" "}
+            <span style={{ fontSize: "11px" }}>(annual, not one-time)</span>
+          </span>
           <TooltipInfo content={ROAD_TAX_TIP} />
         </span>
         <span>{fmt(annualRoadTax)}/yr</span>
@@ -231,6 +283,13 @@ export default function PriceBreakdown({
           {fmt(total)}
         </span>
       </div>
+
+      {/* Live source footnote */}
+      {liveStatus === "done" && liveData?.source && (
+        <div style={{ marginTop: "10px", fontSize: "10px", color: "#444", textAlign: "right" }}>
+          Source: {liveData.source}
+        </div>
+      )}
     </div>
   );
 }

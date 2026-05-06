@@ -63,6 +63,7 @@ export interface Car {
   addOns: CarAddOn[];
   notIncluded: CarNotIncluded[];
   activePromotions: CarPromotion[];
+  livePrice?: boolean;
 }
 
 export interface Brand {
