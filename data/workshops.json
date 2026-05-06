@@ -1,0 +1,62 @@
+[
+  {
+    "id": "revv-garage",
+    "name": "Revv Garage",
+    "address": "10 Ubi Crescent, #01-08",
+    "district": "Ubi",
+    "specialities": ["wheels", "suspension", "bodykit"],
+    "phone": "+65 6747 1234",
+    "lat": 1.3291,
+    "lng": 103.8975
+  },
+  {
+    "id": "motorkraft",
+    "name": "Motorkraft",
+    "address": "3 Ang Mo Kio Industrial Park 2A, #01-12",
+    "district": "AMK",
+    "specialities": ["exhaust", "suspension"],
+    "phone": "+65 6458 5678",
+    "lat": 1.3720,
+    "lng": 103.8630
+  },
+  {
+    "id": "the-tint-specialists",
+    "name": "The Tint Specialists",
+    "address": "201 Kaki Bukit Ave 1, #02-05",
+    "district": "Kaki Bukit",
+    "specialities": ["tint"],
+    "phone": "+65 6744 9012",
+    "lat": 1.3350,
+    "lng": 103.9050
+  },
+  {
+    "id": "autohaus-workshop",
+    "name": "Autohaus Workshop",
+    "address": "15 Leng Kee Road, #01-03",
+    "district": "Queenstown",
+    "specialities": ["wheels", "bodykit", "exhaust"],
+    "phone": "+65 6475 3456",
+    "lat": 1.2900,
+    "lng": 103.8060
+  },
+  {
+    "id": "performance-dynamics",
+    "name": "Performance Dynamics",
+    "address": "7 Toh Guan Road East, #01-22",
+    "district": "Jurong",
+    "specialities": ["suspension", "wheels"],
+    "phone": "+65 6261 7890",
+    "lat": 1.3330,
+    "lng": 103.7430
+  },
+  {
+    "id": "exhaust-masters",
+    "name": "Exhaust Masters",
+    "address": "22 Bukit Batok Industrial Park A, #01-09",
+    "district": "Bukit Batok",
+    "specialities": ["exhaust", "tint"],
+    "phone": "+65 6569 2345",
+    "lat": 1.3490,
+    "lng": 103.7490
+  }
+]

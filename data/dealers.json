@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cnc-autohaus-alexandra",
+    "name": "Cycle & Carriage Autohaus",
+    "address": "239 Alexandra Road",
+    "district": "Alexandra",
+    "phone": "+65 6471 4242",
+    "appointmentUrl": "https://www.mercedes-benz.com.sg/passengercars/test-drive.html",
+    "lat": 1.2890,
+    "lng": 103.8020
+  },
+  {
+    "id": "cnc-leng-kee",
+    "name": "Cycle & Carriage",
+    "address": "1 Leng Kee Road",
+    "district": "Queenstown",
+    "phone": "+65 6471 4242",
+    "appointmentUrl": "https://www.mercedes-benz.com.sg/passengercars/test-drive.html",
+    "lat": 1.2910,
+    "lng": 103.8045
+  },
+  {
+    "id": "inchcape-alexandra",
+    "name": "Inchcape Mercedes-Benz",
+    "address": "301 Alexandra Road",
+    "district": "Alexandra",
+    "phone": "+65 6476 7878",
+    "appointmentUrl": "https://www.mercedes-benz.com.sg/passengercars/test-drive.html",
+    "lat": 1.2875,
+    "lng": 103.8010
+  }
+]

@@ -1,0 +1,593 @@
+[
+  {
+    "id": "mercedes-c300-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "C300",
+    "modelSlug": "c300",
+    "year": 2025,
+    "livePrice": true,
+    "basePrice": 288800,
+    "colors": [
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Selenite Grey", "slug": "selenite-grey", "hex": "#8A8E91", "priceDelta": 2500 },
+      { "name": "Spectral Blue", "slug": "spectral-blue", "hex": "#2E4D7B", "priceDelta": 3200 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "18-inch alloy, five-spoke silver finish", "priceDelta": 0 },
+      { "index": 1, "name": "19-inch AMG alloy, multi-spoke dark finish", "priceDelta": 4800 }
+    ],
+    "specs": {
+      "engine": "2.0L turbocharged inline-4",
+      "power": "258 hp",
+      "torque": "400 Nm",
+      "transmission": "9-speed automatic",
+      "acceleration": "0–100 km/h in 5.8s",
+      "topSpeed": "250 km/h (limited)",
+      "fuelConsumption": "7.1L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 96000,
+      "arf": 57760,
+      "registrationFee": 220,
+      "annualRoadTax": 1482
+    },
+    "addOns": [
+      {
+        "id": "c300-burmester-sound",
+        "name": "Burmester Surround Sound System",
+        "plainDescription": "13-speaker, 590-watt sound system replacing the standard audio setup. Adds spatial audio processing and a dedicated subwoofer in the boot.",
+        "priceDelta": 5800,
+        "replacesWhat": "Standard 9-speaker audio system"
+      },
+      {
+        "id": "c300-panoramic-roof",
+        "name": "Panoramic Sliding Sunroof",
+        "plainDescription": "Full-length glass roof that slides open electrically. Includes a retractable sunblind and UV-blocking glass.",
+        "priceDelta": 4200,
+        "replacesWhat": "Standard fixed steel roof"
+      },
+      {
+        "id": "c300-night-package",
+        "name": "Night Package",
+        "plainDescription": "Replaces chrome exterior trim with gloss black — grille surrounds, window frames, and mirror caps. Purely cosmetic.",
+        "priceDelta": 3100,
+        "replacesWhat": "Standard chrome exterior trim"
+      },
+      {
+        "id": "c300-driver-assist",
+        "name": "Advanced Driver Assistance Package",
+        "plainDescription": "Adds active lane-keeping, adaptive cruise control with stop-and-go, and blind-spot monitoring. Requires MBUX navigation.",
+        "priceDelta": 6500,
+        "replacesWhat": "Basic cruise control and parking sensors"
+      },
+      {
+        "id": "ni-floor-mats-all-weather",
+        "name": "Floor Mats (All-Weather)",
+        "plainDescription": "OEM rubber mats for all four footwells. The car ships with carpet mats only.",
+        "priceDelta": 380,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-window-tinting",
+        "name": "Window Tinting",
+        "plainDescription": "Factory windows have no tint. Dealer-applied 70% VLT film meets LTA limits.",
+        "priceDelta": 650,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-dashcam-front-rear",
+        "name": "Dashcam (Front + Rear)",
+        "plainDescription": "No dashcam fitted as standard. Dealer installs a hardwired front-and-rear unit with parking mode.",
+        "priceDelta": 750,
+        "replacesWhat": "Not included by default"
+      }
+    ],
+    "notIncluded": [
+      {
+        "name": "Floor Mats (All-Weather)",
+        "description": "OEM rubber mats for all four footwells. The car ships with carpet mats only.",
+        "addPrice": 380
+      },
+      {
+        "name": "Window Tinting",
+        "description": "Factory windows have no tint. Dealer-applied 70% VLT film meets LTA limits.",
+        "addPrice": 650
+      },
+      {
+        "name": "Dashcam (Front + Rear)",
+        "description": "No dashcam fitted as standard. Dealer installs a hardwired front-and-rear unit with parking mode.",
+        "addPrice": 750
+      }
+    ],
+    "activePromotions": [
+      {
+        "description": "May 2025 showroom launch discount — applied at point of registration",
+        "saving": 5000,
+        "expiryDate": "2025-05-31"
+      }
+    ]
+  },
+  {
+    "id": "mercedes-glc300-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "GLC300",
+    "modelSlug": "glc300",
+    "year": 2025,
+    "livePrice": true,
+    "basePrice": 338800,
+    "colors": [
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Graphite Grey", "slug": "graphite-grey", "hex": "#4A4A4A", "priceDelta": 0 },
+      { "name": "Emerald Green", "slug": "emerald-green", "hex": "#2D5A3D", "priceDelta": 3500 },
+      { "name": "Manufaktur Nautical Blue", "slug": "nautical-blue", "hex": "#1B3A5C", "priceDelta": 5200 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "19-inch alloy, five-spoke silver finish", "priceDelta": 0 },
+      { "index": 1, "name": "20-inch AMG alloy, cross-spoke dark finish", "priceDelta": 5500 }
+    ],
+    "specs": {
+      "engine": "2.0L turbocharged inline-4",
+      "power": "258 hp",
+      "torque": "400 Nm",
+      "transmission": "9-speed automatic",
+      "acceleration": "0–100 km/h in 6.0s",
+      "topSpeed": "235 km/h (limited)",
+      "fuelConsumption": "7.5L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 96000,
+      "arf": 67760,
+      "registrationFee": 220,
+      "annualRoadTax": 1482
+    },
+    "addOns": [
+      {
+        "id": "glc300-burmester-sound",
+        "name": "Burmester 3D Surround Sound",
+        "plainDescription": "15-speaker, 710-watt system with height channels for 3D audio. Replaces the standard 9-speaker setup entirely.",
+        "priceDelta": 6800,
+        "replacesWhat": "Standard 9-speaker audio system"
+      },
+      {
+        "id": "glc300-offroad-package",
+        "name": "Off-Road Engineering Package",
+        "plainDescription": "Adds underbody protection plates, a locking rear differential, and trail mode in the drive selector. Does not raise ride height.",
+        "priceDelta": 7200,
+        "replacesWhat": "Standard underbody trim"
+      },
+      {
+        "id": "glc300-night-package",
+        "name": "Night Package",
+        "plainDescription": "Swaps chrome exterior badges, mirror caps, and window frames for gloss black versions. No mechanical changes.",
+        "priceDelta": 3400,
+        "replacesWhat": "Standard chrome exterior trim"
+      },
+      {
+        "id": "glc300-air-suspension",
+        "name": "AIRMATIC Air Suspension",
+        "plainDescription": "Replaces the standard steel-spring suspension with an air-spring setup that adjusts ride height automatically at speed or on demand.",
+        "priceDelta": 9800,
+        "replacesWhat": "Standard steel-spring suspension"
+      },
+      {
+        "id": "ni-cargo-liner",
+        "name": "Cargo Liner",
+        "plainDescription": "The boot has no liner. OEM rubber liner protects against spills and scratches when loading.",
+        "priceDelta": 280,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-window-tinting",
+        "name": "Window Tinting",
+        "plainDescription": "No factory tint. Dealer applies 70% VLT film to side and rear windows within LTA regulations.",
+        "priceDelta": 750,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-tow-bar",
+        "name": "Tow Bar",
+        "plainDescription": "GLC300 is rated to tow 2,000 kg but ships with no tow bar fitted. Dealer-installed detachable unit.",
+        "priceDelta": 1800,
+        "replacesWhat": "Not included by default"
+      }
+    ],
+    "notIncluded": [
+      {
+        "name": "Cargo Liner",
+        "description": "The boot has no liner. OEM rubber liner protects against spills and scratches when loading.",
+        "addPrice": 280
+      },
+      {
+        "name": "Window Tinting",
+        "description": "No factory tint. Dealer applies 70% VLT film to side and rear windows within LTA regulations.",
+        "addPrice": 750
+      },
+      {
+        "name": "Tow Bar",
+        "description": "GLC300 is rated to tow 2,000 kg but ships with no tow bar fitted. Dealer-installed detachable unit.",
+        "addPrice": 1800
+      }
+    ],
+    "activePromotions": [
+      {
+        "description": "Q2 2025 fleet refresh — waived first-year road tax on registration before 30 June",
+        "saving": 1482,
+        "expiryDate": "2025-06-30"
+      }
+    ]
+  },
+  {
+    "id": "mercedes-amg-glc43-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "AMG GLC43",
+    "modelSlug": "amg-glc43",
+    "year": 2025,
+    "livePrice": true,
+    "basePrice": 448800,
+    "colors": [
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Patagonia Red", "slug": "patagonia-red", "hex": "#8B1A1A", "priceDelta": 4500 },
+      { "name": "High-tech Silver", "slug": "high-tech-silver", "hex": "#C0C0C0", "priceDelta": 0 },
+      { "name": "Manufaktur Selenite Grey Magno", "slug": "selenite-grey-magno", "hex": "#6E7275", "priceDelta": 8500 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "20-inch AMG alloy, five-twin-spoke titanium grey finish", "priceDelta": 0 },
+      { "index": 1, "name": "21-inch AMG forged alloy, cross-spoke matte black finish", "priceDelta": 7800 }
+    ],
+    "specs": {
+      "engine": "3.0L twin-turbocharged inline-6",
+      "power": "421 hp",
+      "torque": "520 Nm",
+      "transmission": "9-speed AMG Speedshift MCT",
+      "acceleration": "0–100 km/h in 4.1s",
+      "topSpeed": "270 km/h (limited)",
+      "fuelConsumption": "9.1L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 96000,
+      "arf": 89760,
+      "registrationFee": 220,
+      "annualRoadTax": 3578
+    },
+    "addOns": [
+      {
+        "id": "amg43-burmester-highend",
+        "name": "Burmester High-End 3D Sound System",
+        "plainDescription": "24-speaker, 1,590-watt system with Dolby Atmos support. Built specifically for the GLC cabin dimensions.",
+        "priceDelta": 12500,
+        "replacesWhat": "Standard Burmester 3D system"
+      },
+      {
+        "id": "amg43-performance-exhaust",
+        "name": "AMG Performance Exhaust",
+        "plainDescription": "Stainless steel exhaust with active flaps that open at high rpm for a louder sound. Noticeable difference in tunnel and at startup.",
+        "priceDelta": 9800,
+        "replacesWhat": "Standard exhaust system"
+      },
+      {
+        "id": "amg43-carbon-pack",
+        "name": "AMG Carbon Fibre Interior Package",
+        "plainDescription": "Replaces dashboard trim and door inserts with real woven carbon fibre panels. Adds carbon fibre shift paddles.",
+        "priceDelta": 11200,
+        "replacesWhat": "Standard open-pore wood trim"
+      },
+      {
+        "id": "amg43-track-package",
+        "name": "AMG Track Pace & Telemetry",
+        "plainDescription": "Adds the AMG Track Pace app to the instrument cluster — logs lap times, g-forces, and tyre temperatures via MBUX. Requires AMG Driver's Package for top-speed removal.",
+        "priceDelta": 4200,
+        "replacesWhat": "Standard sport display in instrument cluster"
+      },
+      {
+        "id": "ni-amg-floor-mats-velour",
+        "name": "AMG Floor Mats (Velour)",
+        "plainDescription": "Car ships with standard mats. AMG-logoed velour set fits precisely and adds a cabin finish consistent with the exterior.",
+        "priceDelta": 580,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-paint-protection-film-full-front",
+        "name": "Paint Protection Film (Full Front)",
+        "plainDescription": "No PPF applied at factory. Self-healing film covers bonnet, front bumper, and wing mirrors against stone chips.",
+        "priceDelta": 3800,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-ceramic-brake-upgrade",
+        "name": "Ceramic Brake Upgrade",
+        "plainDescription": "Standard steel brakes are adequate. AMG ceramic composite brakes cut unsprung weight by 20 kg and resist fade on track.",
+        "priceDelta": 18500,
+        "replacesWhat": "Not included by default"
+      }
+    ],
+    "notIncluded": [
+      {
+        "name": "AMG Floor Mats (Velour)",
+        "description": "Car ships with standard mats. AMG-logoed velour set fits precisely and adds a cabin finish consistent with the exterior.",
+        "addPrice": 580
+      },
+      {
+        "name": "Paint Protection Film (Full Front)",
+        "description": "No PPF applied at factory. Self-healing film covers bonnet, front bumper, and wing mirrors against stone chips.",
+        "addPrice": 3800
+      },
+      {
+        "name": "Ceramic Brake Upgrade",
+        "description": "Standard steel brakes are adequate. AMG ceramic composite brakes cut unsprung weight by 20 kg and resist fade on track.",
+        "addPrice": 18500
+      }
+    ],
+    "activePromotions": [
+      {
+        "description": "AMG Performance Weekend — complimentary one-day AMG driving experience at Sepang included with purchase",
+        "saving": 3500,
+        "expiryDate": "2025-07-15"
+      }
+    ]
+  },
+  {
+    "id": "mercedes-e200-avantgarde-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "E200 Avantgarde",
+    "modelSlug": "e200-avantgarde",
+    "year": 2025,
+    "livePrice": false,
+    "lastUpdated": "2026-05-06",
+    "priceSource": "https://www.mercedes-benz.com.sg",
+    "customRoute": "/e-class",
+    "basePrice": 132780,
+    "colors": [
+      { "name": "High-tech Silver", "slug": "high-tech-silver", "hex": "#C0C0C0", "priceDelta": 0 },
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Mojave Silver", "slug": "mojave-silver", "hex": "#A8A8A0", "priceDelta": 2800 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "18-inch 5-spoke alloy, silver finish", "priceDelta": 0 },
+      { "index": 1, "name": "19-inch multi-spoke alloy, dark finish", "priceDelta": 4200 }
+    ],
+    "specs": {
+      "engine": "2.0L turbocharged inline-4",
+      "power": "204 hp",
+      "torque": "320 Nm",
+      "transmission": "9G-Tronic automatic",
+      "acceleration": "0–100 km/h in 7.6s",
+      "topSpeed": "235 km/h (limited)",
+      "fuelConsumption": "7.0L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 106000,
+      "arf": 60800,
+      "registrationFee": 220,
+      "annualRoadTax": 1482
+    },
+    "addOns": [
+      {
+        "id": "e200-premium-package",
+        "name": "Premium Package",
+        "plainDescription": "Adds a panoramic sunroof, ambient lighting with 64 colours, and wireless phone charging. Bundled as a single option.",
+        "priceDelta": 7800,
+        "replacesWhat": "Standard roof, fixed ambient lighting"
+      },
+      {
+        "id": "e200-driver-assist",
+        "name": "Driver Assistance Package",
+        "plainDescription": "Active lane-keeping, adaptive cruise control with stop-and-go function, and blind-spot monitoring. All features work down to 0 km/h.",
+        "priceDelta": 6500,
+        "replacesWhat": "Basic cruise control"
+      },
+      {
+        "id": "e200-night-package",
+        "name": "Night Package",
+        "plainDescription": "Gloss black grille surround, mirror caps, and window trim in place of the standard chrome. No mechanical changes.",
+        "priceDelta": 3200,
+        "replacesWhat": "Standard chrome exterior trim"
+      },
+      { "id": "ni-floor-mats-all-weather", "name": "Floor Mats (All-Weather)", "plainDescription": "OEM rubber mats for all four footwells. Car ships with carpet mats only.", "priceDelta": 380, "replacesWhat": "Not included by default" },
+      { "id": "ni-window-tinting", "name": "Window Tinting", "plainDescription": "Dealer-applied 70% VLT film on side and rear glass within LTA limits.", "priceDelta": 650, "replacesWhat": "Not included by default" },
+      { "id": "ni-dashcam-front-rear", "name": "Dashcam (Front + Rear)", "plainDescription": "Hardwired front-and-rear unit with parking mode. No dashcam fitted as standard.", "priceDelta": 750, "replacesWhat": "Not included by default" }
+    ],
+    "notIncluded": [
+      { "name": "Floor Mats (All-Weather)", "description": "OEM rubber mats. Car ships with carpet mats only.", "addPrice": 380 },
+      { "name": "Window Tinting", "description": "No factory tint. Dealer applies 70% VLT film within LTA limits.", "addPrice": 650 },
+      { "name": "Dashcam (Front + Rear)", "description": "No dashcam fitted as standard. Dealer installs hardwired front-and-rear unit.", "addPrice": 750 }
+    ],
+    "activePromotions": [
+      { "description": "May 2026 E-Class launch offer — S$5,000 off OTR on direct registration", "saving": 5000, "expiryDate": "2026-05-31" }
+    ],
+    "mods": [
+      { "id": "e200-bbs-rev", "name": "RE-V", "brand": "BBS", "category": "wheels", "priceMin": 3800, "priceMax": 5200, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "bbs-rev" },
+      { "id": "e200-vossen-hf5", "name": "HF-5", "brand": "Vossen", "category": "wheels", "priceMin": 4500, "priceMax": 6000, "ltaCompliant": true, "workshopId": "autohaus-workshop", "imageSlug": "vossen-hf5" },
+      { "id": "e200-oz-ultraleggera", "name": "Ultraleggera", "brand": "OZ Racing", "category": "wheels", "priceMin": 3200, "priceMax": 4800, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "oz-ultraleggera" },
+      { "id": "e200-hr-springs", "name": "Sport Springs", "brand": "H&R", "category": "suspension", "priceMin": 1200, "priceMax": 1800, "ltaCompliant": true, "workshopId": "performance-dynamics", "imageSlug": "hr-sport-springs" },
+      { "id": "e200-kw-v3", "name": "Coilovers V3", "brand": "KW", "category": "suspension", "priceMin": 3500, "priceMax": 5000, "ltaCompliant": true, "workshopId": "performance-dynamics", "imageSlug": "kw-v3" },
+      { "id": "e200-eibach", "name": "Pro-Kit", "brand": "Eibach", "category": "suspension", "priceMin": 900, "priceMax": 1400, "ltaCompliant": true, "workshopId": "motorkraft", "imageSlug": "eibach-pro-kit" },
+      { "id": "e200-llumar-ctx", "name": "CTX 70%", "brand": "Llumar", "category": "tint", "priceMin": 400, "priceMax": 600, "ltaCompliant": true, "workshopId": "the-tint-specialists", "imageSlug": "llumar-ctx" },
+      { "id": "e200-3m-crystalline", "name": "Crystalline 40%", "brand": "3M", "category": "tint", "priceMin": 800, "priceMax": 1200, "ltaCompliant": true, "workshopId": "the-tint-specialists", "imageSlug": "3m-crystalline" },
+      { "id": "e200-solargard-20", "name": "20% Rear Only", "brand": "SolarGard", "category": "tint", "priceMin": 300, "priceMax": 500, "ltaCompliant": false, "ltaNote": "Rear only, check LTA", "workshopId": "exhaust-masters", "imageSlug": "solargard-20" },
+      { "id": "e200-akrapovic", "name": "Slip-On Line", "brand": "Akrapovic", "category": "exhaust", "priceMin": 4500, "priceMax": 6500, "ltaCompliant": false, "ltaNote": "Check LTA noise limits", "workshopId": "exhaust-masters", "imageSlug": "akrapovic-slip-on" },
+      { "id": "e200-milltek", "name": "Non-Resonated Cat-Back", "brand": "Milltek", "category": "exhaust", "priceMin": 3800, "priceMax": 5500, "ltaCompliant": false, "ltaNote": "Check LTA noise limits", "workshopId": "autohaus-workshop", "imageSlug": "milltek-non-res" },
+      { "id": "e200-amg-night", "name": "AMG Night Package (Genuine)", "brand": "Mercedes-AMG", "category": "bodykit", "priceMin": 8000, "priceMax": 12000, "ltaCompliant": true, "workshopId": "autohaus-workshop", "imageSlug": "amg-night-package" },
+      { "id": "e200-renntech-splitter", "name": "Front Splitter", "brand": "Renntech", "category": "bodykit", "priceMin": 2500, "priceMax": 3500, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "renntech-splitter" }
+    ]
+  },
+  {
+    "id": "mercedes-e300-amg-line-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "E300 AMG Line",
+    "modelSlug": "e300-amg-line",
+    "year": 2025,
+    "livePrice": false,
+    "lastUpdated": "2026-05-06",
+    "priceSource": "https://www.mercedes-benz.com.sg",
+    "customRoute": "/e-class",
+    "basePrice": 151780,
+    "colors": [
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Selenite Grey", "slug": "selenite-grey", "hex": "#8A8E91", "priceDelta": 2500 },
+      { "name": "Spectral Blue", "slug": "spectral-blue", "hex": "#2E4D7B", "priceDelta": 3500 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "19-inch AMG 5-twin-spoke alloy, black finish", "priceDelta": 0 },
+      { "index": 1, "name": "20-inch AMG cross-spoke forged alloy, dark finish", "priceDelta": 5200 }
+    ],
+    "specs": {
+      "engine": "2.0L turbocharged inline-4",
+      "power": "258 hp",
+      "torque": "400 Nm",
+      "transmission": "9G-Tronic automatic",
+      "acceleration": "0–100 km/h in 6.1s",
+      "topSpeed": "250 km/h (limited)",
+      "fuelConsumption": "7.2L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 106000,
+      "arf": 70800,
+      "registrationFee": 220,
+      "annualRoadTax": 1482
+    },
+    "addOns": [
+      {
+        "id": "e300-burmester-sound",
+        "name": "Burmester Surround Sound System",
+        "plainDescription": "13-speaker, 590-watt system with spatial audio and a dedicated boot subwoofer. Replaces the standard 9-speaker setup.",
+        "priceDelta": 5800,
+        "replacesWhat": "Standard 9-speaker audio system"
+      },
+      {
+        "id": "e300-driver-assist",
+        "name": "Driver Assistance Package Plus",
+        "plainDescription": "Adds active lane-change assist, evasive steering, and automatic emergency braking for cyclists and pedestrians.",
+        "priceDelta": 8200,
+        "replacesWhat": "Standard Driver Assistance Package"
+      },
+      {
+        "id": "e300-amg-carbon",
+        "name": "AMG Carbon Fibre Trim",
+        "plainDescription": "Replaces the standard open-pore wood dashboard inserts with real woven carbon fibre. Door inserts also changed.",
+        "priceDelta": 6400,
+        "replacesWhat": "Standard open-pore wood trim"
+      },
+      { "id": "ni-floor-mats-all-weather", "name": "Floor Mats (All-Weather)", "plainDescription": "OEM rubber mats for all four footwells. Car ships with carpet mats only.", "priceDelta": 380, "replacesWhat": "Not included by default" },
+      { "id": "ni-window-tinting", "name": "Window Tinting", "plainDescription": "Dealer-applied 70% VLT film on side and rear glass within LTA limits.", "priceDelta": 650, "replacesWhat": "Not included by default" },
+      { "id": "ni-paint-protection-film-full-front", "name": "Paint Protection Film (Full Front)", "plainDescription": "Self-healing film on bonnet, front bumper, and mirror caps. No PPF applied at factory.", "priceDelta": 3800, "replacesWhat": "Not included by default" }
+    ],
+    "notIncluded": [
+      { "name": "Floor Mats (All-Weather)", "description": "OEM rubber mats. Car ships with carpet mats only.", "addPrice": 380 },
+      { "name": "Window Tinting", "description": "No factory tint. Dealer applies 70% VLT film within LTA limits.", "addPrice": 650 },
+      { "name": "Paint Protection Film (Full Front)", "description": "Self-healing PPF on bonnet, bumper, and mirrors. Not applied at factory.", "addPrice": 3800 }
+    ],
+    "activePromotions": [
+      { "description": "May 2026 E-Class launch offer — S$5,000 off OTR on direct registration", "saving": 5000, "expiryDate": "2026-05-31" }
+    ],
+    "mods": [
+      { "id": "e300-bbs-rev", "name": "RE-V", "brand": "BBS", "category": "wheels", "priceMin": 3800, "priceMax": 5200, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "bbs-rev" },
+      { "id": "e300-vossen-hf5", "name": "HF-5", "brand": "Vossen", "category": "wheels", "priceMin": 4500, "priceMax": 6000, "ltaCompliant": true, "workshopId": "autohaus-workshop", "imageSlug": "vossen-hf5" },
+      { "id": "e300-oz-ultraleggera", "name": "Ultraleggera", "brand": "OZ Racing", "category": "wheels", "priceMin": 3200, "priceMax": 4800, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "oz-ultraleggera" },
+      { "id": "e300-hr-springs", "name": "Sport Springs", "brand": "H&R", "category": "suspension", "priceMin": 1200, "priceMax": 1800, "ltaCompliant": true, "workshopId": "performance-dynamics", "imageSlug": "hr-sport-springs" },
+      { "id": "e300-kw-v3", "name": "Coilovers V3", "brand": "KW", "category": "suspension", "priceMin": 3500, "priceMax": 5000, "ltaCompliant": true, "workshopId": "performance-dynamics", "imageSlug": "kw-v3" },
+      { "id": "e300-eibach", "name": "Pro-Kit", "brand": "Eibach", "category": "suspension", "priceMin": 900, "priceMax": 1400, "ltaCompliant": true, "workshopId": "motorkraft", "imageSlug": "eibach-pro-kit" },
+      { "id": "e300-llumar-ctx", "name": "CTX 70%", "brand": "Llumar", "category": "tint", "priceMin": 400, "priceMax": 600, "ltaCompliant": true, "workshopId": "the-tint-specialists", "imageSlug": "llumar-ctx" },
+      { "id": "e300-3m-crystalline", "name": "Crystalline 40%", "brand": "3M", "category": "tint", "priceMin": 800, "priceMax": 1200, "ltaCompliant": true, "workshopId": "the-tint-specialists", "imageSlug": "3m-crystalline" },
+      { "id": "e300-solargard-20", "name": "20% Rear Only", "brand": "SolarGard", "category": "tint", "priceMin": 300, "priceMax": 500, "ltaCompliant": false, "ltaNote": "Rear only, check LTA", "workshopId": "exhaust-masters", "imageSlug": "solargard-20" },
+      { "id": "e300-akrapovic", "name": "Slip-On Line", "brand": "Akrapovic", "category": "exhaust", "priceMin": 4500, "priceMax": 6500, "ltaCompliant": false, "ltaNote": "Check LTA noise limits", "workshopId": "exhaust-masters", "imageSlug": "akrapovic-slip-on" },
+      { "id": "e300-milltek", "name": "Non-Resonated Cat-Back", "brand": "Milltek", "category": "exhaust", "priceMin": 3800, "priceMax": 5500, "ltaCompliant": false, "ltaNote": "Check LTA noise limits", "workshopId": "autohaus-workshop", "imageSlug": "milltek-non-res" },
+      { "id": "e300-amg-night", "name": "AMG Night Package (Genuine)", "brand": "Mercedes-AMG", "category": "bodykit", "priceMin": 8000, "priceMax": 12000, "ltaCompliant": true, "workshopId": "autohaus-workshop", "imageSlug": "amg-night-package" },
+      { "id": "e300-renntech-splitter", "name": "Front Splitter", "brand": "Renntech", "category": "bodykit", "priceMin": 2500, "priceMax": 3500, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "renntech-splitter" }
+    ]
+  },
+  {
+    "id": "mercedes-e450-4matic-amg-line-2025",
+    "brand": "Mercedes-Benz",
+    "brandSlug": "mercedes-benz",
+    "model": "E450 4MATIC AMG Line",
+    "modelSlug": "e450-4matic-amg-line",
+    "year": 2025,
+    "livePrice": false,
+    "lastUpdated": "2026-05-06",
+    "priceSource": "https://www.mercedes-benz.com.sg",
+    "customRoute": "/e-class",
+    "basePrice": 195780,
+    "colors": [
+      { "name": "Obsidian Black", "slug": "obsidian-black", "hex": "#1A1A1A", "priceDelta": 0 },
+      { "name": "Selenite Grey Magno", "slug": "selenite-grey-magno", "hex": "#6E7275", "priceDelta": 7500 },
+      { "name": "Polar White", "slug": "polar-white", "hex": "#F5F5F0", "priceDelta": 0 },
+      { "name": "Patagonia Red", "slug": "patagonia-red", "hex": "#8B1A1A", "priceDelta": 4500 }
+    ],
+    "wheels": [
+      { "index": 0, "name": "20-inch AMG 5-double-spoke forged alloy, titanium grey", "priceDelta": 0 },
+      { "index": 1, "name": "21-inch AMG cross-spoke forged alloy, gloss black", "priceDelta": 7200 }
+    ],
+    "specs": {
+      "engine": "3.0L turbocharged inline-6 + 48V mild hybrid",
+      "power": "367 hp",
+      "torque": "500 Nm",
+      "transmission": "9G-Tronic automatic, 4MATIC AWD",
+      "acceleration": "0–100 km/h in 4.9s",
+      "topSpeed": "250 km/h (limited)",
+      "fuelConsumption": "8.2L/100km"
+    },
+    "sgFees": {
+      "coeEstimate": 106000,
+      "arf": 86800,
+      "registrationFee": 220,
+      "annualRoadTax": 3578
+    },
+    "addOns": [
+      {
+        "id": "e450-burmester-highend",
+        "name": "Burmester High-End 3D Sound",
+        "plainDescription": "24-speaker, 1,590-watt Dolby Atmos system. Tuned specifically for the E-Class cabin dimensions.",
+        "priceDelta": 12500,
+        "replacesWhat": "Standard Burmester surround system"
+      },
+      {
+        "id": "e450-performance-exhaust",
+        "name": "AMG Performance Exhaust",
+        "plainDescription": "Active-flap stainless exhaust with distinct sound at high rpm. Noticeably louder in Sport+ mode and at cold start.",
+        "priceDelta": 9800,
+        "replacesWhat": "Standard exhaust system"
+      },
+      {
+        "id": "e450-airmatic",
+        "name": "AIRMATIC Air Suspension",
+        "plainDescription": "Replaces steel springs with air springs. Adjusts ride height automatically at highway speeds and can be raised for speed bumps.",
+        "priceDelta": 9800,
+        "replacesWhat": "Standard steel-spring suspension"
+      },
+      { "id": "ni-amg-floor-mats-velour", "name": "AMG Floor Mats (Velour)", "plainDescription": "AMG-logoed velour set. Car ships with standard carpet mats.", "priceDelta": 580, "replacesWhat": "Not included by default" },
+      { "id": "ni-paint-protection-film-full-front", "name": "Paint Protection Film (Full Front)", "plainDescription": "Self-healing PPF on bonnet, bumper, and mirrors. Not applied at factory.", "priceDelta": 3800, "replacesWhat": "Not included by default" },
+      { "id": "ni-window-tinting", "name": "Window Tinting", "plainDescription": "Dealer-applied 70% VLT film within LTA limits.", "priceDelta": 650, "replacesWhat": "Not included by default" }
+    ],
+    "notIncluded": [
+      { "name": "AMG Floor Mats (Velour)", "description": "AMG-logoed velour mats. Car ships with standard carpet mats.", "addPrice": 580 },
+      { "name": "Paint Protection Film (Full Front)", "description": "Self-healing PPF on bonnet, bumper, and mirrors. Not applied at factory.", "addPrice": 3800 },
+      { "name": "Window Tinting", "description": "No factory tint. Dealer applies 70% VLT film within LTA limits.", "addPrice": 650 }
+    ],
+    "activePromotions": [
+      { "description": "May 2026 E-Class launch offer — S$5,000 off OTR on direct registration", "saving": 5000, "expiryDate": "2026-05-31" }
+    ],
+    "mods": [
+      { "id": "e450-bbs-rev", "name": "RE-V", "brand": "BBS", "category": "wheels", "priceMin": 3800, "priceMax": 5200, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "bbs-rev" },
+      { "id": "e450-vossen-hf5", "name": "HF-5", "brand": "Vossen", "category": "wheels", "priceMin": 4500, "priceMax": 6000, "ltaCompliant": true, "workshopId": "autohaus-workshop", "imageSlug": "vossen-hf5" },
+      { "id": "e450-oz-ultraleggera", "name": "Ultraleggera", "brand": "OZ Racing", "category": "wheels", "priceMin": 3200, "priceMax": 4800, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "oz-ultraleggera" },
+      { "id": "e450-hr-springs", "name": "Sport Springs", "brand": "H&R", "category": "suspension", "priceMin": 1200, "priceMax": 1800, "ltaCompliant": true, "workshopId": "performance-dynamics", "imageSlug": "hr-sport-springs" },
+      { "id": "e450-kw-v3", "name": "Coilovers V3", "brand": "KW", "category": "suspension", "priceMin": 3500, "priceMax": 5000, "ltaCompliant": true, "workshopId": "performance-dynamics", "imageSlug": "kw-v3" },
+      { "id": "e450-eibach", "name": "Pro-Kit", "brand": "Eibach", "category": "suspension", "priceMin": 900, "priceMax": 1400, "ltaCompliant": true, "workshopId": "motorkraft", "imageSlug": "eibach-pro-kit" },
+      { "id": "e450-llumar-ctx", "name": "CTX 70%", "brand": "Llumar", "category": "tint", "priceMin": 400, "priceMax": 600, "ltaCompliant": true, "workshopId": "the-tint-specialists", "imageSlug": "llumar-ctx" },
+      { "id": "e450-3m-crystalline", "name": "Crystalline 40%", "brand": "3M", "category": "tint", "priceMin": 800, "priceMax": 1200, "ltaCompliant": true, "workshopId": "the-tint-specialists", "imageSlug": "3m-crystalline" },
+      { "id": "e450-solargard-20", "name": "20% Rear Only", "brand": "SolarGard", "category": "tint", "priceMin": 300, "priceMax": 500, "ltaCompliant": false, "ltaNote": "Rear only, check LTA", "workshopId": "exhaust-masters", "imageSlug": "solargard-20" },
+      { "id": "e450-akrapovic", "name": "Slip-On Line", "brand": "Akrapovic", "category": "exhaust", "priceMin": 4500, "priceMax": 6500, "ltaCompliant": false, "ltaNote": "Check LTA noise limits", "workshopId": "exhaust-masters", "imageSlug": "akrapovic-slip-on" },
+      { "id": "e450-milltek", "name": "Non-Resonated Cat-Back", "brand": "Milltek", "category": "exhaust", "priceMin": 3800, "priceMax": 5500, "ltaCompliant": false, "ltaNote": "Check LTA noise limits", "workshopId": "autohaus-workshop", "imageSlug": "milltek-non-res" },
+      { "id": "e450-amg-night", "name": "AMG Night Package (Genuine)", "brand": "Mercedes-AMG", "category": "bodykit", "priceMin": 8000, "priceMax": 12000, "ltaCompliant": true, "workshopId": "autohaus-workshop", "imageSlug": "amg-night-package" },
+      { "id": "e450-renntech-splitter", "name": "Front Splitter", "brand": "Renntech", "category": "bodykit", "priceMin": 2500, "priceMax": 3500, "ltaCompliant": true, "workshopId": "revv-garage", "imageSlug": "renntech-splitter" }
+    ]
+  }
+]

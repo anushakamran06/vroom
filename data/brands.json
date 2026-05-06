@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Mercedes-Benz",
+    "slug": "mercedes-benz",
+    "country": "Germany"
+  },
+  {
+    "name": "BMW",
+    "slug": "bmw",
+    "country": "Germany"
+  },
+  {
+    "name": "Audi",
+    "slug": "audi",
+    "country": "Germany"
+  },
+  {
+    "name": "Porsche",
+    "slug": "porsche",
+    "country": "Germany"
+  },
+  {
+    "name": "Lexus",
+    "slug": "lexus",
+    "country": "Japan"
+  }
+]
