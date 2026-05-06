@@ -89,7 +89,7 @@ export default async function CarsPage({ searchParams }: PageProps) {
         {cars.map((car) => (
           <Link
             key={car.id}
-            href={`/cars/${car.brandSlug}/${car.modelSlug}`}
+            href={car.customRoute ?? `/cars/${car.brandSlug}/${car.modelSlug}`}
             style={{ textDecoration: "none" }}
           >
             <div

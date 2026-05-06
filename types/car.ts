@@ -48,6 +48,19 @@ export interface CarSpecs {
   fuelConsumption: string;
 }
 
+export interface CarMod {
+  id: string;
+  name: string;
+  brand: string;
+  category: "wheels" | "suspension" | "tint" | "exhaust" | "bodykit";
+  priceMin: number;
+  priceMax: number;
+  ltaCompliant: boolean;
+  ltaNote?: string;
+  workshopId: string;
+  imageSlug: string;
+}
+
 export interface Car {
   id: string;
   brand: string;
@@ -64,10 +77,36 @@ export interface Car {
   notIncluded: CarNotIncluded[];
   activePromotions: CarPromotion[];
   livePrice?: boolean;
+  mods?: CarMod[];
+  lastUpdated?: string;
+  priceSource?: string;
+  customRoute?: string;
 }
 
 export interface Brand {
   name: string;
   slug: string;
   country: string;
+}
+
+export interface Workshop {
+  id: string;
+  name: string;
+  address: string;
+  district: string;
+  specialities: string[];
+  phone: string;
+  lat: number;
+  lng: number;
+}
+
+export interface Dealer {
+  id: string;
+  name: string;
+  address: string;
+  district: string;
+  phone: string;
+  appointmentUrl: string;
+  lat: number;
+  lng: number;
 }

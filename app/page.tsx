@@ -55,7 +55,7 @@ export default function HomePage() {
           honest add-on prices, zero fluff.
         </p>
 
-        <div>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
           <Link
             href="/cars"
             style={{
@@ -67,10 +67,26 @@ export default function HomePage() {
               textDecoration: "none",
               fontSize: "15px",
               fontWeight: 600,
-              borderRadius: "6px",
+              borderRadius: "4px",
             }}
           >
             Explore Models →
+          </Link>
+          <Link
+            href="/e-class"
+            style={{
+              display: "inline-block",
+              padding: "0.75rem 2rem",
+              border: "1px solid #C8A96E",
+              color: "#C8A96E",
+              background: "transparent",
+              textDecoration: "none",
+              fontSize: "15px",
+              fontWeight: 600,
+              borderRadius: "4px",
+            }}
+          >
+            E-Class Configurator →
           </Link>
         </div>
       </section>
