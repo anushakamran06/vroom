@@ -93,6 +93,7 @@ export default async function CarsPage({ searchParams }: PageProps) {
             style={{ textDecoration: "none" }}
           >
             <div
+              className="hover-gold"
               style={{
                 background: "#111",
                 border: "1px solid #1E1E1E",
@@ -101,12 +102,6 @@ export default async function CarsPage({ searchParams }: PageProps) {
                 cursor: "pointer",
                 transition: "border-color 0.2s",
               }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.borderColor = "#C8A96E")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.borderColor = "#1E1E1E")
-              }
             >
               <div
                 style={{

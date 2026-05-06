@@ -109,12 +109,14 @@ export default function HomePage() {
               style={{ textDecoration: "none" }}
             >
               <div
+                className="hover-gold"
                 style={{
                   background: "#111",
                   border: "1px solid #1E1E1E",
                   borderRadius: "10px",
                   padding: "28px 20px",
                   cursor: "pointer",
+                  transition: "border-color 0.2s",
                 }}
               >
                 <div

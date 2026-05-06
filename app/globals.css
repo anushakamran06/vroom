@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hover-gold:hover { border-color: #C8A96E !important; }
+.hover-fill:hover { background: #FFFFFF; color: #0A0A0A; }

@@ -29,10 +29,8 @@ export default function ConfigPanel({ car }: ConfigPanelProps) {
 
   function addNotIncluded(name: string, price?: number) {
     if (!price) return;
-    const id = "ni-" + name.toLowerCase().replace(/\s+/g, "-");
-    if (!selectedAddOns.includes(id)) {
-      setSelectedAddOns((prev) => [...prev, id]);
-    }
+    const id = "ni-" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    toggleAddOn(id);
   }
 
   const color = car.colors.find((c) => c.slug === selectedColor);
@@ -248,23 +246,28 @@ export default function ConfigPanel({ car }: ConfigPanelProps) {
                     {item.description}
                   </p>
                 </div>
-                {item.addPrice != null && (
-                  <button
-                    onClick={() => addNotIncluded(item.name, item.addPrice)}
-                    style={{
-                      whiteSpace: "nowrap",
-                      padding: "6px 12px",
-                      borderRadius: "6px",
-                      border: "1px solid #1A1A1A",
-                      background: "transparent",
-                      fontSize: "12px",
-                      cursor: "pointer",
-                      color: "#1A1A1A",
-                    }}
-                  >
-                    Add S${item.addPrice.toLocaleString("en-SG")}
-                  </button>
-                )}
+                {item.addPrice != null && (() => {
+                  const niId = "ni-" + item.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+                  const added = selectedAddOns.includes(niId);
+                  return (
+                    <button
+                      onClick={() => addNotIncluded(item.name, item.addPrice)}
+                      style={{
+                        whiteSpace: "nowrap",
+                        padding: "6px 12px",
+                        borderRadius: "6px",
+                        border: "1px solid #1A1A1A",
+                        background: added ? "#1A1A1A" : "transparent",
+                        fontSize: "12px",
+                        cursor: "pointer",
+                        color: added ? "#fff" : "#1A1A1A",
+                        transition: "background 0.15s, color 0.15s",
+                      }}
+                    >
+                      {added ? "Remove" : `Add S$${item.addPrice.toLocaleString("en-SG")}`}
+                    </button>
+                  );
+                })()}
               </div>
             ))}
           </div>

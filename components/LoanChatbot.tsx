@@ -70,9 +70,6 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
   }
 
   async function callClaude(userText: string, contextMessages: Message[]): Promise<string> {
-    const apiKey = process.env.NEXT_PUBLIC_ANTHROPIC_API_KEY;
-    if (!apiKey) return "Please set NEXT_PUBLIC_ANTHROPIC_API_KEY to enable AI responses.";
-
     const systemPrompt = `You are a car loan advisor for Singapore. The customer is configuring a ${car.model}. Total on-the-road price: ${fmt(totalPrice)}. Always use Singapore dollar formatting (S$X,XXX). Explain financial terms in plain English. Be concise. Never use marketing language.`;
 
     const apiMessages = contextMessages.map((m) => ({
@@ -81,30 +78,20 @@ export default function LoanChatbot({ car, totalPrice, isOpen, onClose }: LoanCh
     }));
     apiMessages.push({ role: "user", content: userText });
 
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const res = await fetch("/api/chat", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerous-direct-browser-access": "true",
-      },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 512,
-        system: systemPrompt,
-        messages: apiMessages,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: apiMessages, systemPrompt }),
     });
 
     if (!res.ok) {
       const err = await res.text();
-      console.error("Claude API error:", err);
+      console.error("Chat API error:", err);
       return "Sorry, I couldn't reach the AI advisor right now.";
     }
 
     const data = await res.json();
-    return data.content?.[0]?.text ?? "No response.";
+    return data.text ?? "No response.";
   }
 
   async function handleSend() {

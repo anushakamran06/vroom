@@ -60,6 +60,27 @@
         "plainDescription": "Adds active lane-keeping, adaptive cruise control with stop-and-go, and blind-spot monitoring. Requires MBUX navigation.",
         "priceDelta": 6500,
         "replacesWhat": "Basic cruise control and parking sensors"
+      },
+      {
+        "id": "ni-floor-mats-all-weather",
+        "name": "Floor Mats (All-Weather)",
+        "plainDescription": "OEM rubber mats for all four footwells. The car ships with carpet mats only.",
+        "priceDelta": 380,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-window-tinting",
+        "name": "Window Tinting",
+        "plainDescription": "Factory windows have no tint. Dealer-applied 70% VLT film meets LTA limits.",
+        "priceDelta": 650,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-dashcam-front-rear",
+        "name": "Dashcam (Front + Rear)",
+        "plainDescription": "No dashcam fitted as standard. Dealer installs a hardwired front-and-rear unit with parking mode.",
+        "priceDelta": 750,
+        "replacesWhat": "Not included by default"
       }
     ],
     "notIncluded": [
@@ -148,6 +169,27 @@
         "plainDescription": "Replaces the standard steel-spring suspension with an air-spring setup that adjusts ride height automatically at speed or on demand.",
         "priceDelta": 9800,
         "replacesWhat": "Standard steel-spring suspension"
+      },
+      {
+        "id": "ni-cargo-liner",
+        "name": "Cargo Liner",
+        "plainDescription": "The boot has no liner. OEM rubber liner protects against spills and scratches when loading.",
+        "priceDelta": 280,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-window-tinting",
+        "name": "Window Tinting",
+        "plainDescription": "No factory tint. Dealer applies 70% VLT film to side and rear windows within LTA regulations.",
+        "priceDelta": 750,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-tow-bar",
+        "name": "Tow Bar",
+        "plainDescription": "GLC300 is rated to tow 2,000 kg but ships with no tow bar fitted. Dealer-installed detachable unit.",
+        "priceDelta": 1800,
+        "replacesWhat": "Not included by default"
       }
     ],
     "notIncluded": [
@@ -236,6 +278,27 @@
         "plainDescription": "Adds the AMG Track Pace app to the instrument cluster — logs lap times, g-forces, and tyre temperatures via MBUX. Requires AMG Driver's Package for top-speed removal.",
         "priceDelta": 4200,
         "replacesWhat": "Standard sport display in instrument cluster"
+      },
+      {
+        "id": "ni-amg-floor-mats-velour",
+        "name": "AMG Floor Mats (Velour)",
+        "plainDescription": "Car ships with standard mats. AMG-logoed velour set fits precisely and adds a cabin finish consistent with the exterior.",
+        "priceDelta": 580,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-paint-protection-film-full-front",
+        "name": "Paint Protection Film (Full Front)",
+        "plainDescription": "No PPF applied at factory. Self-healing film covers bonnet, front bumper, and wing mirrors against stone chips.",
+        "priceDelta": 3800,
+        "replacesWhat": "Not included by default"
+      },
+      {
+        "id": "ni-ceramic-brake-upgrade",
+        "name": "Ceramic Brake Upgrade",
+        "plainDescription": "Standard steel brakes are adequate. AMG ceramic composite brakes cut unsprung weight by 20 kg and resist fade on track.",
+        "priceDelta": 18500,
+        "replacesWhat": "Not included by default"
       }
     ],
     "notIncluded": [
