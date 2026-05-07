@@ -1,0 +1,307 @@
+[
+  {
+    "id": "e-class-saloon",
+    "name": "E-Class Saloon",
+    "fullName": "Mercedes-Benz E-Class Saloon",
+    "class": "saloon",
+    "route": "/classes/saloon",
+    "basePrice": 392888,
+    "images": [
+      "/images/e-class/front.jpg",
+      "/images/e-class/rear.jpg",
+      "/images/e-class/side.jpg",
+      "/images/e-class/interior.jpg"
+    ],
+    "variants": [
+      {
+        "id": "e200",
+        "name": "E 200",
+        "basePrice": 392888,
+        "engine": "1.5L 4-cyl Mild Hybrid",
+        "power": "204hp",
+        "torque": "300Nm",
+        "zeroToHundred": "7.3s",
+        "topSpeed": "240km/h",
+        "transmission": "9G-TRONIC"
+      },
+      {
+        "id": "e300",
+        "name": "E 300 4MATIC",
+        "basePrice": 438888,
+        "engine": "2.0L 4-cyl Turbo",
+        "power": "258hp",
+        "torque": "400Nm",
+        "zeroToHundred": "5.8s",
+        "topSpeed": "250km/h",
+        "transmission": "9G-TRONIC"
+      },
+      {
+        "id": "e300e",
+        "name": "E 300 e Plug-in Hybrid",
+        "basePrice": 468888,
+        "engine": "2.0L 4-cyl + Electric Motor (PHEV)",
+        "power": "313hp",
+        "torque": "550Nm",
+        "zeroToHundred": "5.9s",
+        "topSpeed": "235km/h",
+        "transmission": "9G-TRONIC"
+      }
+    ],
+    "sgFees": {
+      "coe": 106000,
+      "arf": 65000,
+      "roadTax": { "e200": 1258, "e300": 1682, "e300e": 742 }
+    },
+    "monthlyRunning": {
+      "petrol": { "e200": 280, "e300": 330, "e300e": 180 },
+      "maintenance": { "e200": 380, "e300": 450, "e300e": 400 },
+      "insurance": { "e200": 290, "e300": 340, "e300e": 360 }
+    },
+    "mods": [
+      {
+        "id": "amg-line-exterior",
+        "category": "exterior",
+        "name": "AMG Line Exterior Package",
+        "description": "Front apron, side skirts, rear diffuser, chrome exhaust tips",
+        "priceDelta": 8800,
+        "ltaCompliant": true
+      },
+      {
+        "id": "amg-night-package",
+        "category": "exterior",
+        "name": "AMG Night Package",
+        "description": "Gloss black trim elements, darkened headlight bezels, black badge",
+        "priceDelta": 4200,
+        "ltaCompliant": true
+      },
+      {
+        "id": "amg-wheels-19",
+        "category": "exterior",
+        "name": "AMG 19\" Multi-Spoke Alloy Wheels",
+        "description": "Forged alloy wheels in titanium grey or black",
+        "priceDelta": 4800,
+        "ltaCompliant": true
+      },
+      {
+        "id": "designo-leather",
+        "category": "interior",
+        "name": "DESIGNO Nappa Leather Interior",
+        "description": "Full Nappa leather upholstery, choice of 5 colours",
+        "priceDelta": 5500,
+        "ltaCompliant": true
+      },
+      {
+        "id": "burmester-surround",
+        "category": "interior",
+        "name": "Burmester® Surround Sound System",
+        "description": "13-speaker 590W high-fidelity audio system",
+        "priceDelta": 5800,
+        "ltaCompliant": true
+      },
+      {
+        "id": "mbux-assistant",
+        "category": "interior",
+        "name": "MBUX Interior Assistant",
+        "description": "Interior camera-based gesture and proximity sensing",
+        "priceDelta": 2200,
+        "ltaCompliant": true
+      }
+    ]
+  },
+  {
+    "id": "cle-200-coupe",
+    "name": "CLE 200 Coupé",
+    "fullName": "Mercedes-Benz CLE 200 Coupé",
+    "class": "coupe",
+    "route": "/classes/coupe",
+    "basePrice": 363888,
+    "images": [
+      "/images/cle-coupe/front.jpg",
+      "/images/cle-coupe/rear.jpg",
+      "/images/cle-coupe/side.jpg",
+      "/images/cle-coupe/interior.jpg"
+    ],
+    "variants": [
+      {
+        "id": "cle200",
+        "name": "CLE 200",
+        "basePrice": 363888,
+        "engine": "1.5L 4-cyl Mild Hybrid",
+        "power": "204hp",
+        "torque": "300Nm",
+        "zeroToHundred": "7.4s",
+        "topSpeed": "240km/h",
+        "transmission": "9G-TRONIC"
+      },
+      {
+        "id": "cle300",
+        "name": "CLE 300 4MATIC",
+        "basePrice": 418888,
+        "engine": "2.0L 4-cyl Turbo",
+        "power": "258hp",
+        "torque": "400Nm",
+        "zeroToHundred": "6.0s",
+        "topSpeed": "250km/h",
+        "transmission": "9G-TRONIC"
+      },
+      {
+        "id": "cle53",
+        "name": "CLE 53 AMG 4MATIC+",
+        "basePrice": 539888,
+        "engine": "3.0L 6-cyl Mild Hybrid AMG",
+        "power": "449hp",
+        "torque": "560Nm",
+        "zeroToHundred": "4.0s",
+        "topSpeed": "270km/h",
+        "transmission": "9G-SPEEDSHIFT MCT"
+      }
+    ],
+    "sgFees": {
+      "coe": 106000,
+      "arf": 58000,
+      "roadTax": { "cle200": 1258, "cle300": 1682, "cle53": 2638 }
+    },
+    "monthlyRunning": {
+      "petrol": { "cle200": 220, "cle300": 280, "cle53": 380 },
+      "maintenance": { "cle200": 350, "cle300": 420, "cle53": 650 },
+      "insurance": { "cle200": 280, "cle300": 320, "cle53": 480 }
+    },
+    "mods": [
+      {
+        "id": "amg-aero-kit",
+        "category": "exterior",
+        "name": "AMG Aerodynamics Package",
+        "description": "Front splitter, side sill panels, rear diffuser",
+        "priceDelta": 7800,
+        "ltaCompliant": true
+      },
+      {
+        "id": "amg-calipers",
+        "category": "exterior",
+        "name": "AMG Red Brake Calipers",
+        "description": "High-performance caliper set, front + rear",
+        "priceDelta": 3800,
+        "ltaCompliant": true
+      },
+      {
+        "id": "amg-wheels-20",
+        "category": "exterior",
+        "name": "AMG 20\" Multi-Spoke Forged Wheels",
+        "description": "Forged alloy, titanium grey or black",
+        "priceDelta": 6200,
+        "ltaCompliant": true
+      },
+      {
+        "id": "nappa-leather",
+        "category": "interior",
+        "name": "MANUFAKTUR Nappa Leather Interior",
+        "description": "Full Nappa leather, choice of 4 colours",
+        "priceDelta": 5500,
+        "ltaCompliant": true
+      },
+      {
+        "id": "amg-steering",
+        "category": "interior",
+        "name": "AMG Performance Steering Wheel",
+        "description": "Flat-bottom, heated, with AMG shift paddles",
+        "priceDelta": 2800,
+        "ltaCompliant": true
+      },
+      {
+        "id": "burmester",
+        "category": "interior",
+        "name": "Burmester® 3D Surround Sound",
+        "description": "High-end 13-speaker 590W system",
+        "priceDelta": 8500,
+        "ltaCompliant": true
+      }
+    ]
+  },
+  {
+    "id": "maybach-s580",
+    "name": "Maybach S 580 4MATIC",
+    "fullName": "Mercedes-Maybach S-Class Saloon",
+    "class": "ultra-luxury",
+    "route": "/classes/ultra-luxury",
+    "basePrice": 1236888,
+    "images": [
+      "/images/maybach-s-class/front.jpg",
+      "/images/maybach-s-class/rear.jpg",
+      "/images/maybach-s-class/side.jpg",
+      "/images/maybach-s-class/interior.jpg"
+    ],
+    "variants": [
+      {
+        "id": "s580",
+        "name": "S 580 4MATIC",
+        "basePrice": 1236888,
+        "engine": "4.0L V8 Biturbo + 48V mild hybrid",
+        "power": "500hp",
+        "torque": "800Nm",
+        "zeroToHundred": "4.8s",
+        "topSpeed": "250km/h (limited)",
+        "transmission": "9G-TRONIC"
+      }
+    ],
+    "sgFees": {
+      "coe": 106000,
+      "arf": 380000,
+      "roadTax": 4560
+    },
+    "monthlyRunning": {
+      "petrol": 520,
+      "maintenance": 900,
+      "insurance": 680
+    },
+    "mods": [
+      {
+        "id": "maybach-exclusive",
+        "category": "exterior",
+        "name": "Maybach Exclusive Two-Tone Paint",
+        "description": "MANUFAKTUR bespoke two-tone, 10 combinations",
+        "priceDelta": 28000,
+        "ltaCompliant": true
+      },
+      {
+        "id": "maybach-wheels-21",
+        "category": "exterior",
+        "name": "Maybach 21\" Forged Wheels",
+        "description": "Multi-spoke forged, chrome or matte finish",
+        "priceDelta": 12000,
+        "ltaCompliant": true
+      },
+      {
+        "id": "maybach-calipers",
+        "category": "exterior",
+        "name": "Maybach Branded Brake Calipers",
+        "description": "Gold-finish calipers with Maybach lettering",
+        "priceDelta": 6500,
+        "ltaCompliant": true
+      },
+      {
+        "id": "rear-executive",
+        "category": "interior",
+        "name": "Executive Rear Seat Package",
+        "description": "Reclining seats, footrests, champagne cooler",
+        "priceDelta": 45000,
+        "ltaCompliant": true
+      },
+      {
+        "id": "burmester-4d",
+        "category": "interior",
+        "name": "Burmester® 4D Surround Sound",
+        "description": "Dolby Atmos, resonators in seat cushions",
+        "priceDelta": 18000,
+        "ltaCompliant": true
+      },
+      {
+        "id": "rear-curtains",
+        "category": "interior",
+        "name": "Electric Rear Privacy Curtains",
+        "description": "Full side and rear window curtain set",
+        "priceDelta": 8800,
+        "ltaCompliant": true
+      }
+    ]
+  }
+]
