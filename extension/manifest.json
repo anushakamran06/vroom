@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "N.ext — NUS Opportunity Feed",
+  "version": "1.0.0",
+  "description": "Aggregates Canvas deadlines, TalentConnect listings, scholarships, and more into one notification feed for NUS students.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "N.ext Feed",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://canvas.nus.edu.sg/*"],
+      "js": ["utils/fingerprint.js", "utils/storage.js", "content/canvas.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://nus-csm.symplicity.com/*"],
+      "js": ["utils/fingerprint.js", "utils/storage.js", "content/talentconnect.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://canvas.nus.edu.sg/*",
+    "https://nus-csm.symplicity.com/*",
+    "https://www.reddit.com/*",
+    "https://nus.edu.sg/*",
+    "https://scholarships.nus.edu.sg/*",
+    "https://devpost.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["popup/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

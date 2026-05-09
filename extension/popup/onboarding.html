@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to N.ext</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 36px;
+    }
+    .logo { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .logo span { color: #1a5fa8; }
+    .tagline { color: #8b949e; margin-bottom: 32px; }
+    h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: #8b949e; margin-bottom: 16px; }
+    .template-grid { display: grid; gap: 12px; }
+    .template-btn {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      text-align: left;
+      color: #e6edf3;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .template-btn:hover { border-color: #1a5fa8; background: #0d192b; }
+    .template-btn.selected { border-color: #003D7C; background: #0a1628; }
+    .template-btn strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .template-btn span { font-size: 12px; color: #8b949e; }
+    .cta {
+      margin-top: 24px;
+      background: #003D7C;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.15s;
+    }
+    .cta:hover { background: #1a5fa8; }
+    .cta:disabled { opacity: 0.4; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">N<span>.</span>ext</div>
+    <p class="tagline">Your NUS opportunity feed. Choose a starting preset:</p>
+    <h2>Pick your template</h2>
+    <div class="template-grid">
+      <button class="template-btn" data-template="freshman">
+        <strong>Freshman</strong>
+        <span>Canvas deadlines · NUS announcements · CCA/hall openings</span>
+      </button>
+      <button class="template-btn" data-template="internship">
+        <strong>Internship Hunter</strong>
+        <span>TalentConnect listings · Reddit internship posts · Hackathons</span>
+      </button>
+      <button class="template-btn" data-template="scholarship">
+        <strong>Scholarship Focused</strong>
+        <span>NUS scholarship page · Reddit scholarship posts · Bursary announcements</span>
+      </button>
+    </div>
+    <button class="cta" id="get-started" disabled>Get Started</button>
+  </div>
+
+  <script>
+    const TEMPLATE_SOURCES = {
+      freshman:    { canvas: true, talentconnect: false, reddit: true, nus_scholarships: false, nus_news: true, devpost: false },
+      internship:  { canvas: false, talentconnect: true, reddit: true, nus_scholarships: false, nus_news: false, devpost: true },
+      scholarship: { canvas: false, talentconnect: false, reddit: true, nus_scholarships: true, nus_news: true, devpost: false },
+    };
+
+    let selected = null;
+    document.querySelectorAll('.template-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selected = btn.dataset.template;
+        document.getElementById('get-started').disabled = false;
+      });
+    });
+
+    document.getElementById('get-started').addEventListener('click', async () => {
+      if (!selected) return;
+      await chrome.storage.local.set({
+        settings: { template: selected, sources: TEMPLATE_SOURCES[selected] }
+      });
+      window.close();
+    });
+  </script>
+</body>
+</html>
